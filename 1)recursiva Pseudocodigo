@@ -1,0 +1,25 @@
+ALGORITMO num1_recursivo
+
+INICIO
+
+    PROCEDIMENTO Mostrar(INTEIRO: n1, INTEIRO: n2)
+    INICIO
+        SE n1>x
+            ENTÃO RETORNE;
+
+        SE n1%2 == 0
+            ESCREVA n1;
+        Mostrar(n1+1,x);
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+        VAR INTEIRO: n;
+
+        ESCREVA "Digite um valor para n";
+        LEIA n;
+        Mostrar(0,n);
+    FIM.
+FIM.
+
+
