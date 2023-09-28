@@ -1,0 +1,25 @@
+ALGORITMO num2_recursivo
+INICIO
+
+    FUNÇÃO INTEIRO: MDC(INTEIRO:n1,INTEIRO:n2)
+    INICIO
+
+        SE n2 == 0
+            ENTÃO RETORNE n1;
+            SENÃO RETORNE MDC(n2,n1%n2);
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO:num1,num2;
+
+        ESCREVA "Digite o primeiro número:";
+        LEIA num1;
+
+        ESCREVA "DigiTe o segundo número:";
+        LEIA num2;
+        
+        ESCREVA "O MDC é:",MDC(num1,num2);
+    FIM.
+FIM.

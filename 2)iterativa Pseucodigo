@@ -1,0 +1,36 @@
+ALGORITMO num2_iterativo
+
+INICIO
+
+    FUNÇÃO INTEIRO: MDC(INTEIRO:n1,INTEIRO:n2)
+    INICIO
+        VAR INTEIRO: resto=1,aux;
+
+        SE n2>n1
+            ENTÃO aux = n1;
+                  n1 = n2;
+                  n2 = aux;
+
+        ENQUANTO resto <> 0 FAÇA
+            resto = n1%n2;
+            n1 = n2;
+            n2 = resto;
+        FIM_ENQUANTO;
+
+        RETORNE n1;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO:num1,num2;
+
+        ESCREVA "Digite o primeiro número:";
+        LEIA num1;
+
+        ESCREVA "DigiTe o segundo número:";
+        LEIA num2;
+        
+        ESCREVA "O MDC é:",MDC(num1,num2);
+    FIM.
+FIM.

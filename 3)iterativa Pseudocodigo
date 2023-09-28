@@ -1,0 +1,36 @@
+ALGORITMO num3_iterativo
+INICIO
+
+    FUNÇÃO REAL: potencia(REAL: X1,INTEIRO: n1)
+    INICIO
+        VAR INTEIRO:i;
+            REAL: res = 1;
+        
+        SE n1>0
+            ENTÃO PARA i DE 1 ATÉ n1 FAÇA
+                        res = res * X1;
+                  FIM_PARA;
+            
+            SENÃO SE n1 < 0 
+                        ENTÃO PARA i DE 1 ATÉ -n1 FAÇA
+                                    res = res/X1;
+                              FIM_PARA;
+        
+        RETORNE res;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO: n;
+            REAL: X;
+
+        ESCREVA "Digite o valor real para X:";
+        LEIA X;
+
+        ESCREVA "Digite o valor inteiro para N:";
+        LEIA n;
+
+        ESCREVA "o resultado é:",potencia(X,n);
+    FIM.
+FIM.

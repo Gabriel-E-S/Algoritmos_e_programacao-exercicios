@@ -1,0 +1,27 @@
+ALGORITMO num3_recursivo
+INICIO
+
+    FUNÇÃO REAL: potencia(REAL: base,INTEIRO: exp)
+    INICIO
+        SE exp == 0
+            ENTÃO RETORNE 1.0;
+
+        SE exp>0
+            ENTÃO RETORNE base*potencia(base,exp-1);
+            SENÃO RETORNE 1.0/potencia(base,-exp);
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+        VAR REAL: X;
+            INTEIRO: n;
+
+        ESCREVA "Digite o valor real para X:";
+        LEIA X;
+    
+        ESCREVA "Digite o valor inteiro para N:";
+        LEIA n;
+
+        ESCREVA "o resultado é:",potencia(X,n);
+    FIM.
+FIM.
