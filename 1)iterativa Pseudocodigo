@@ -1,0 +1,23 @@
+ALGORITMO num1_iterativo
+
+INICIO
+
+    PROCEDIMENTO MOSTRAR(INTEIRO: n1)
+    INICIO 
+        INTEIRO: i;
+        PARA i DE 1 ATÉ n1 FAÇA
+            SE i%2 == 0 
+                ENTÃO ESCREVA i;
+        FIM_PARA;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+        INTEIRO: n;
+
+        ESCREVA "Digite o valor de N";
+        LEIA n;
+
+        MOSTRAR(n);
+    FIM.
+FIM.
