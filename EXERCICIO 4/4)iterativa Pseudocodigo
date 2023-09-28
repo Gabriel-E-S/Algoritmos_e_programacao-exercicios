@@ -1,0 +1,24 @@
+ALGORITMO num4_iterativo
+INICIO
+
+    FUNÇÃO INTEIRO somat(INTEIRO: N)
+    INICIO
+        VAR INTEIRO: i,soma=0;
+
+        PARA i DE 1 ATÉ N FAÇA
+            soma = soma + i;
+        FIM_PARA;
+
+        RETORNE soma;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+        VAR INTEIRO: n;
+
+        ESCREVA "digite o valor para N:";
+        LEIA n;
+
+        ESCREVA "a soma de 0 até",n,"é",somat(n);
+    FIM.
+FIM.
