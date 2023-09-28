@@ -1,0 +1,33 @@
+ALGORITMO num5_iterativo
+INICIO
+
+    FUNÇÃO INTEIRO: qualemenor(VAR INTEIRO: veto[],INTEIRO:tam)
+    INICIO
+
+        VAR INTEIRO:i, menor = veto[1];
+
+        PARA i DE 1 ATÉ tam FAÇA
+            SE veto[i]<menor
+                ENTÃO menor = veto[i];
+        FIM_PARA;
+
+        RETORNE menor;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO:tama,vet[100],res;
+
+        ESCREVA "digite o tamanho do vetor:";
+        LEIA tama;
+
+        PARA i de 1 ATÉ tama FAÇA
+            ESCREVA "V[",i,"] = ";
+            LEIA vet[i];
+        FIM_PARA;
+
+        res = qualemenor(vet,tama);
+        ESCREVA " O menor elemento é:",res;
+    FIM.
+FIM.

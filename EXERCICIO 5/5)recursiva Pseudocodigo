@@ -1,0 +1,33 @@
+ALGORITMO num5_recursivo
+INICIO
+
+    FUNÇÃO INTEIRO: qualemenor(VAR INTEIRO:veto[],INTEIRO: tam)
+    INICIO
+
+        VAR INTEIRO:mv;
+
+        SE tam == 1
+            ENTÃO RETORNE veto[0];
+            SENÃO mv = qualemenor(veto,tam-1);
+                  SE veto[tam-1]<mv
+                    ENTÃO RETORNE veto[tam-1];
+                    SENÃO RETORNE mv;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO: tama,i,vet[100],res;
+
+        ESCREVA "digite o tamanho do vetor:";
+        LEIA tama;
+
+        PARA i de 1 ATÉ tama FAÇA
+            ESCREVA "V[",i,"] = ";
+            LEIA vet[i];
+        FIM_PARA;
+
+        res = qualemenor(vet,tama);
+        ESCREVA " O menor elemento é:",res;
+    FIM.
+FIM.
