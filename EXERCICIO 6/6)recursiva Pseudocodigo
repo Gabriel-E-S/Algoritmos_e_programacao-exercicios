@@ -1,0 +1,30 @@
+ALGORITMO num6_recursivo
+INÍCIO
+
+    FUNÇÃO INTEIRO: somat(VAR INTEIRO: vet[],INTEIRO:tam)
+    INÍCIO
+         
+         SE tam == 1 
+            ENTÃO RETORNE vet[1];
+            SENÃO RETORNE vet[tam] + somat(vet,tam-1);
+
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: tama,vetor[100],i,res;
+
+        ESCREVA "Digite o tamanho do vetor:";
+        LEIA tama;
+
+        PARA i DE 1 ATÉ tama FAÇA
+             ESCREVA "V[",i,"]=";
+             LEIA vetor[i];
+         FIM_PARA;
+
+        res = somat(vetor,tama);
+
+        ESCREVA "A soma é:",res;
+    FIM.
+FIM.
