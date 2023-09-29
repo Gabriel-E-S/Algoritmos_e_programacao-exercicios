@@ -1,0 +1,33 @@
+ALGORITMO num9_recursivo
+INICIO
+
+    FUNÇÃO INTEIRO: qualemaior(VAR INTEIRO:veto[],INTEIRO: tam)
+    INICIO
+
+        VAR INTEIRO:mv;
+
+        SE tam == 1
+            ENTÃO RETORNE veto[0];
+            SENÃO mv = qualemaior(veto,tam-1);
+                  SE veto[tam-1]>mv
+                    ENTÃO RETORNE veto[tam-1];
+                    SENÃO RETORNE mv;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO: tama,i,vet[100],res;
+
+        ESCREVA "digite o tamanho do vetor:";
+        LEIA tama;
+
+        PARA i de 1 ATÉ tama FAÇA
+            ESCREVA "V[",i,"] = ";
+            LEIA vet[i];
+        FIM_PARA;
+
+        res = qualemaior(vet,tama);
+        ESCREVA " O maior elemento é:",res;
+    FIM.
+FIM.

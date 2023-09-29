@@ -1,0 +1,33 @@
+ALGORITMO num9_iterativo
+INICIO
+
+    FUNÇÃO INTEIRO: qualemaior(VAR INTEIRO: veto[],INTEIRO:tam)
+    INICIO
+
+        VAR INTEIRO:i, maior = veto[1];
+
+        PARA i DE 1 ATÉ tam FAÇA
+            SE veto[i]>maior
+                ENTÃO maior = veto[i];
+        FIM_PARA;
+
+        RETORNE maior;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INICIO
+
+        VAR INTEIRO:tama,vet[100],res;
+
+        ESCREVA "digite o tamanho do vetor:";
+        LEIA tama;
+
+        PARA i de 1 ATÉ tama FAÇA
+            ESCREVA "V[",i,"] = ";
+            LEIA vet[i];
+        FIM_PARA;
+
+        res = qualemaior(vet,tama);
+        ESCREVA " O maior elemento é:",res;
+    FIM.
+FIM.

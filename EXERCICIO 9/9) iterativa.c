@@ -3,20 +3,15 @@
 #include <stdlib.h>
 
 int qualemaior(int veto[],int tam){
-    int mv;
-    if(tam ==1){
-        return veto[0];
+    int maior = veto[0] ;
+    int i;
+    for(i=1;i<tam;i++){
+    if(veto[i]>maior){
+        maior = veto[i];
     }
-    else{
-        mv = qualemaior(veto,tam-1);
-        if(veto[tam-1]>mv){
-            return veto[tam-1];
-        }
-        else{
-            return mv;
-        }
-    }
-    }
+}
+    return maior;
+}
 
 main(){
 
@@ -30,8 +25,7 @@ main(){
         scanf("%d",&vet[i]);
     }
     res = qualemaior(vet,tama);
-    printf("O maior elemento é: %d\n",res);
+    printf("O maior elemento Ã©: %d\n",res);
 
 
 }
-
