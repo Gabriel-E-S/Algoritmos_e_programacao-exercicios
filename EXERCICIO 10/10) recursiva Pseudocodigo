@@ -1,0 +1,41 @@
+ALGORITMO num10_recursivo
+INÍCIO
+
+    FUNÇÃO LÓGICA: epalindromo(LITERAL: num[30],INTEIRO:i,INTEIRO:j)
+    INICIO
+
+        SE i>=j
+            ENTÃO RETORNE .V.;
+        
+        SE num[i] <> num[j]
+            ENTÃO RETORNE .F.;
+
+        RETORNE epalindromo(num,i+1,j-1);
+       
+       
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR LITERAL num[30];
+            INTEIRO: i=1,c=0;
+
+        ESCREVA "Digite o número:";
+        LEIA num;
+
+        ENQUANTO num[i] <> " " FAÇA
+            c = c+1;
+            i = i+1;
+        FIM_ENQUANTO;
+
+        i = 1;
+        d = c;
+
+        SE epalindromo(num,i,d)
+            ENTÃO ESCREVA "é um palindromo";
+            SENÃO ESCREVA "não é um palíndromo";
+    FIM.
+FIM.
+
+
