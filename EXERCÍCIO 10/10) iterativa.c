@@ -10,13 +10,13 @@ int main() {
 
     char num[30];
 
-    printf("Digite um número e verifique se ele é palíndromo:\n");
+    printf("Digite um nÃºmero e verifique se ele Ã© palÃ­ndromo:\n");
     scanf("%s", &num);
 
     if (epalindromo(num)) {
-        printf("%s é um palíndromo.\n", num);
+        printf("%s Ã© um palÃ­ndromo.\n", num);
     } else {
-        printf("%s não é um palíndromo.\n", num);
+        printf("%s nÃ£o Ã© um palÃ­ndromo.\n", num);
     }
 
     return 0;

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <locale.h>
+#include <locale.h> // Para ver acentuação corretamente
 #include <stdlib.h>
 
 int qualemenor(int veto[],int tam){

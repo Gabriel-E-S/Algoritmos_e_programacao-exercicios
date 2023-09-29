@@ -6,7 +6,7 @@ INÍCIO
 
         SE n == 1
             ENTÃO RETORNE 1;
-            SENÃO RETORNE n*n*n + somacubo(n-1);
+            SENÃO RETORNE n*n*n + somacubo(n-1); // em sala foi usado outra função chamada potencia pra isso ao invés de n*n*n
     FIM.
 
     ALGORITMO PRINCIPAL

@@ -30,7 +30,7 @@ main(){
         scanf("%d",&vet[i]);
     }
     res = qualemenor(vet,tama);
-    printf("O menor elemento é: %d\n",res);
+    printf("O menor elemento Ã©: %d\n",res);
 
 
 }
