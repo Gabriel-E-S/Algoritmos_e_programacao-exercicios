@@ -1,0 +1,24 @@
+ALGORITMO num8_recursivo
+INÍCIO
+
+    PROCEDIMENTO impBinario(INTEIRO: numero)
+    INÍCIO
+
+        SE num>1
+            ENTÃO impBinario(num/2);
+       
+        ESCREVA num%2;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: num;
+
+        ESCREVA "digite um número em formato decimal:";
+        LEIA num;
+
+        ESCREVA "representação binária:"
+        impBinario(num);
+    FIM.
+FIM.

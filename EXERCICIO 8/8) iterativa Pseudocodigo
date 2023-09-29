@@ -1,0 +1,33 @@
+ALGORITMO num8_iterativo
+INÍCIO
+
+    PROCEDIMENTO impBinario(INTEIRO: numero)
+    INÍCIO
+
+        VAR INTEIRO: indice,i,nbinario[32];
+
+        ENQUANTO numero>0
+            binario[indice] = numero %2;
+            numero = numero/2;
+            indice++
+        FIM_ENQUANTO;
+
+        SE indice == 0
+            ENTÃO ESCREVA "0";
+            SENÃO PARA i DE indice ATÉ 0 DECREMENTO 1 FAÇA
+                        ESCREVA binario[i];
+                  FIM_PARA;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: num;
+
+        ESCREVA "digite um número em formato decimal:";
+        LEIA num;
+
+        ESCREVA "representação binária:"
+        impBinario(num);
+    FIM.
+FIM.
