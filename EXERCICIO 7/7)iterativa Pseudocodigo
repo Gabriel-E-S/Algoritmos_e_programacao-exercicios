@@ -1,0 +1,28 @@
+ALGORITMO num7_iterativo
+INÍCIO
+
+    FUNÇÃO INTEIRO: somacubo(INTEIRO: n)
+    INÍCIO
+
+        VAR soma = 0,i;
+
+        PARA i de 1 ATÉ n FAÇA
+            soma = soma + i*i*i; //uma versão mais aprimorada usaria um função de exponenciação.
+        FIM_PARA;
+
+        RETORNE soma;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: N,res;
+
+        ESCREVA "digite o valor para n:";
+        LEIA N;
+
+        res = somacubo(N);
+
+        ESCREVA "A soma é:",res;
+    FIM.
+FIM.

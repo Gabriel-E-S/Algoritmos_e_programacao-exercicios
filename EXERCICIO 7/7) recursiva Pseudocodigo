@@ -1,0 +1,24 @@
+ALGORITMO num7_iterativo
+INÍCIO
+
+    FUNÇÃO INTEIRO: somacubo(INTEIRO: n)
+    INÍCIO
+
+        SE n == 1
+            ENTÃO RETORNE 1;
+            SENÃO RETORNE n*n*n + somacubo(n-1);
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: N,res;
+
+        ESCREVA "digite o valor para n:";
+        LEIA N;
+
+        res = somacubo(N);
+
+        ESCREVA "A soma é:",res;
+    FIM.
+FIM.
