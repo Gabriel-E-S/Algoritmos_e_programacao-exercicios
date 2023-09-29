@@ -2,15 +2,15 @@
 #include <locale.h>
 #include <stdlib.h>
 
-int qualemaior(int veto[],int tam){
-    int maior = veto[0] ;
+int qualemenor(int veto[],int tam){
+    int menor = veto[0] ;
     int i;
     for(i=1;i<tam;i++){
-    if(veto[i]>maior){
-        maior = veto[i];
+    if(veto[i]<menor){
+        menor = veto[i];
     }
 }
-    return maior;
+    return menor;
 }
 
 main(){
@@ -24,8 +24,6 @@ main(){
         printf("V[%d] = \n",i+1);
         scanf("%d",&vet[i]);
     }
-    res = qualemaior(vet,tama);
-    printf("O maior elemento é: %d\n",res);
-
-
+    res = qualemenor(vet,tama);
+    printf("O menor elemento Ã©: %d\n",res);
 }
