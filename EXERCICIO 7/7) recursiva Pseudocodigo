@@ -1,4 +1,4 @@
-ALGORITMO num7_iterativo
+ALGORITMO num7_recursivo
 INÍCIO
 
     FUNÇÃO INTEIRO: somacubo(INTEIRO: n)
