@@ -1,0 +1,175 @@
+ALGORITMO empresas
+INÍCIO
+
+    // criando os novos tipos de variáveis das filiais e da matriz
+    TIPO reg_filial = REGISTRO
+
+            INTEIRO: codigo;
+            LITERAL: descricao;
+            LITERAL: modelo;
+            LITERAL: marca;
+            INTEIRO: inicio,fim;
+            REAL: preco;
+            INTEIRO: qtd;
+         FIM_REGISTRO;
+
+         reg_matriz = REGISTRO
+
+            INTEIRO: codigo;
+            INTEIRO: qtd_vendida;
+            REAL: valor_total;
+            
+        FIM_REGISTRO;
+
+    //criando variáveis globais, N e T são o tamanho do vetor das filiais
+    INTEIRO: tamvetmat = 0, tamf1 = N,tamf2 = T;
+    INTEIRO: i,j;
+
+    //procedimento para imprimir as filiais
+
+    PROCEDIMENTO: imprimirfiliais(VAR reg_filial p[],INTEIRO: num,INTEIRO:tam)
+    INÍCIO
+
+        ESCREVA "Resultados da filial",num;
+
+        PARA i DE 1 ATÉ tam FAÇA 
+            ESCREVA "Descrição:",p[i].descricao;
+            ESCREVA "Código:",p[i].codigo;
+            ESCREVA "Modelo:",p[i].modelo;
+            ESCREVA "Marca:",p[i].marca;
+            ESCREVA "Ano início:",p[i].inicio,"Ano final:",p[i].fim;
+            ESCREVA "Preço:",p[i].preco;
+            ESCREVA "Quantidade:",p[i].qtd;
+        FIM_PARA;
+    FIM.
+
+    //procedimento para imprimir o vetor da matriz
+
+    PROCEDIMENTO: imprimirmatriz(VAR reg_matriz matriz[])
+    INÍCIO
+
+        ESCREVA "Vetor da matriz";
+
+        PARA i de 1 ATÉ tamvetmat FAÇA
+            ESCREVA "Código:",matriz[i].codigo;
+            ESCREVA "Quantidade vendida:",matriz[i].qtd_vendida;
+            ESCREVA "Valor total:",matriz[i].valor_total
+        FIM_PARA;
+    FIM;
+
+    //criando o vet da matriz, todos os elementos de f1 são adicionados a ele
+
+    PROCEDIMENTO: criando_vet_matriz(VAR reg_matriz m[],VAR reg_filial f1[])
+    INÍCIO
+
+        PARA i DE 1 ATÉ tamf1 FAÇA
+            m[tamvetmat].codigo = f1[i].codigo;
+            m[tamvetmat].qtd_vendida = f1[i].qtd;
+            m[tamvetmat].valor_total = f1[i].preco * f1[i].qtd;
+            tamvetmat = tamvetmat + 1;
+        FIM_PARA;
+    FIM.
+
+    // nesse procedimento é verificado se a peça em f2 já existe, nesse caso os valores de qtd e valor total são alterados
+    // se a peça não existir ainda, então é criado um novo cadastro para essa peça
+
+    PROCEDIMENTO: verificar_existencia(VAR reg_matriz matriz[],VAR reg_filial f2[])    
+    INÍCIO
+
+        VAR LÓGICO: pecaexiste;
+
+        PARA i de 1 ATÉ tamf2 FAÇA
+            pecaexiste = .F.;
+
+            PARA j de 1 ATÉ tamvetmat FAÇA
+                
+                SE matriz[j].codigo == f2[i].codigo
+                    ENTÃO matriz[i].qtd_vendida = matriz[i].qtd_vendida + f2[i].qtd;
+                          matriz[i].valor_total = matriz[i].valor_total + f2[i].qtd * f2[i].preco;
+                          pecaexiste = .V.
+                          SAIA;
+            FIM_PARA;
+
+            SE .NÃO. pecaexiste
+                ENTÃO   matriz[tamvetmat].codigo = f2[i].codigo;
+                        matriz[tamvetmat].qtd_vendida = f2[i].qtd;
+                        matriz[tamvetmat].valor_total = f2[i].preco * f2[i].qtd;
+                        tamvetmat = tamvetmat+1;
+        FIM_PARA;
+    FIM.
+
+    //nessa função comparamos o primeiro elemento com os restantes e vemos qual deles é maior.
+    //O que é retornado é o código de qual peça foi mais vendida
+
+    FUNÇÃO INTEIRO: maiorvenda(VAR reg_matriz matriz[])
+    INÍCIO
+        VAR INTEIRO: maior = matriz[1].qtd_vendida;
+            INTEIRO: ondeemaior = 1;
+
+        PARA i de 1 ATÉ tamvetmat FAÇA
+            SE matriz[i].qtd_vendida > maior
+                ENTÃO maior = matriz[i].qtd_vendida;
+                      ondeemaior = i;
+        FIM_PARA;
+
+        ESCREVA "A maior venda foi da peça com com código:",matriz[ondeemaior].codigo;
+
+        RETORNE matriz[ondeemaior].codigo;
+    FIM.
+
+    //como não sabemos qual peça foi a mais vendida, temos que procurar nos 2 vetores das filiais
+    //verificamos primeiro no f1, e se não for encontrado nele vemos no f2
+
+    PROCEDIMENTO: acharpecamaisvendida(INTEIRO: codigo,VAR reg_filial f1[],VAR reg_filial f2[])
+    INÍCIO
+        VAR LÓGICO: achou = .F.;
+
+        PARA i DE 1 ATÉ tamf1 FAÇA
+
+            SE codigo == f1[i].codigo
+                    ENTÃO ESCREVA("PEÇA MAIS VENDIDA: ",f1[i].descricao);
+                          ESCREVA("MODELO DE CARRO: ",f1[i].modelo);
+                          achou = .V,;
+        FIM_PARA;
+
+        SE .NÃO. achou 
+            ENTÃO PARA i DE 1 ATÉ tamf2 FAÇA
+
+                        SE codigo == f2[i].codigo
+                            ENTÃO ESCREVA("PEÇA MAIS VENDIDA: ",f2[i].descricao);
+                            ESCREVA("MODELO DE CARRO: ",f2[i].modelo);
+                            achou = .V,;
+                 FIM_PARA;
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+
+        VAR INTEIRO: y;
+
+            //aqui foram inicializadas as variáveis para a comodidade na hora de testar o algoritmo
+
+            reg_filial f1[100] ={
+                {1,"Motor","Kombi","Volks",1900,2005,100,10},
+                {2,"suco de laranja","Celta","Chevrolet",2000,2010,100,10},
+                {3,"Suco de maracuja","Civic","Honda",1999,2012,150,115}};
+
+            reg_filial f2[100] = {
+                {1,"Motor","Kombi","Volks",1900,2005,100,10},
+                {4,"Caixa de câmbio","Lancer EVO","Mitsubishi",1980,2023,100,100},
+                {5,"Espelho dianteiro","Uno","Fiat",1999,2020,100,10}};
+
+            reg_matriz matriz[2*100];
+
+        // aqui são chamadas as funções com seus devidos parâmetros
+
+        imprimirfiliais(f1, 1,tamf1);
+        imprimirfiliais(f2, 2,tamf2);
+
+        criando_vet_matriz(matriz,f1);
+        verificar_existencia(matriz,f2);
+        imprimirmatriz(matriz);
+        y = maiorvenda(matriz);
+        acharpecamaisvendida(y,f1,f2);
+    FIM.
+FIM.
