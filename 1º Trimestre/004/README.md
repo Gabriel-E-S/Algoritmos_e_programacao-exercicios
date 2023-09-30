@@ -5,9 +5,9 @@
 
 ## Exemplo
 <p>Ex¹:</p>
-Entrada: 13
+Entrada: 13<br>
 Saída: 91
-
+<br>
 <p>Ex²:</p>
-Entrada: 4
+Entrada: 4<br>
 Saída: 10

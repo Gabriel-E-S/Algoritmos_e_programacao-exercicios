@@ -5,9 +5,9 @@
 
 ## Exemplo
 <p>Ex¹:</p>
-Entrada: 404
+Entrada: 404<br>
 Saída: true // é palíndromo
-
+<br>
 <p>Ex²:</p>
-Entrada: 3421
+Entrada: 3421<br>
 Saída: false // não é palíndromo
