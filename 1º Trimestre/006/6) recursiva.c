@@ -4,7 +4,7 @@
 
 int somat(int vet[],int tam);
 
-void main(){
+int main(){
 
     setlocale(LC_ALL,"Portuguese");
 
@@ -19,7 +19,9 @@ void main(){
     }
     res = somat(vetor,tama);
 
-    printf("A soma é : %d",res);
+    printf("A soma ï¿½ : %d",res);
+
+    return 0;
 }
 
 int somat(int vet[],int tam){
