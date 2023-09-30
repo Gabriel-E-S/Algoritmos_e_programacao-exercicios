@@ -4,8 +4,7 @@ Olá, nesse repositório estão as atividades propostas para o 2º semestre da d
 ## Conteúdo do Repositório
 
 Este repositório contém as resoluções das atividades em duas formas:<br>
-<img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="Language C">
-1. **Linguagem C** 
+1. <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="Language C">
 2. **Pseudocódigo**
 
 O pseudocódigo que utilizamos foi desenvolvido pelo nosso professor, sendo inspirado nas linguagens C e Pascal.
