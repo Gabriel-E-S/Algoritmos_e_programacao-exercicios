@@ -1,0 +1,166 @@
+#include <stdio.h>
+#include <locale.h>
+#include <windows.h>
+
+#define tam 3
+
+//criação dos novos tipos
+
+struct reg_filial{
+    int codigo;
+    char descricao[20];
+    char modelo[20];
+    char marca[20];
+    int inicio,fim;
+    float preco;
+    int qtd;
+};
+typedef struct reg_filial reg_filial;
+
+struct reg_matriz{
+    int codigo;
+    int qtd_vendida;
+    float valor_total;
+    };
+typedef struct reg_matriz reg_matriz;
+
+//criação de variaveis globais
+
+
+int tamvetmat = 0,tamf1 = tam,tamf2 = tam;
+int i,j;
+
+//funções
+
+void imprimirfiliais(reg_filial p[],int num,int tama){
+    printf("\n\tRESULTADOS: FILIAL %d\n\n",num);
+
+    for(i=0;i<tama;i++ ){
+        printf("\tDESCRIÇÃO: %s\n",p[i].descricao);
+        printf("\tCÓDIGO: %d\n",p[i].codigo);
+        printf("\tMODELO: %s\n",p[i].modelo);
+        printf("\tMARCA: %s\n",p[i].marca);
+        printf("\tANO INICIO: %d ANO FINAL: %d\n",p[i].inicio,p[i].fim);
+        printf("\tPREÇO: %.2f \n",p[i].preco);
+        printf("\tQUANTIDADE: %d \n",p[i].qtd);
+        printf("\t----------------------------------\n");
+    }
+
+}
+
+void imprimirmatriz(reg_matriz matriz[]){
+    printf("\n\n\t\tVETOR DA MATRIZ\n\n");
+    printf("CÓDIGO\tQUANTIDADE VENDIDA\tVALOR TOTAL\n\n");
+
+    for(i=0;i<tamvetmat;i++){
+            printf("  %d\t\t%d\t\t  %.2f\n",matriz[i].codigo,matriz[i].qtd_vendida,matriz[i].valor_total);
+
+
+    }
+
+}
+
+void criando_vet_da_matriz(reg_matriz m[],reg_filial f1[]){
+    for(i=0;i<tamf1;i++){
+        m[tamvetmat].codigo = f1[i].codigo;
+        m[tamvetmat].qtd_vendida = f1[i].qtd;
+        m[tamvetmat].valor_total = f1[i].preco * f1[i].qtd;
+        tamvetmat = tamvetmat+1;
+
+    }
+}
+
+void verificar_existencia(reg_matriz matriz[], reg_filial f2[]){
+
+    for(i=0;i<tamf2;i++){
+
+        int pecaexiste = 0;
+
+        for(j=0;j<tamvetmat;j++){
+                if(matriz[j].codigo == f2[i].codigo){
+                        matriz[j].qtd_vendida += f2[i].qtd;
+                        matriz[j].valor_total +=  f2[i].preco * f2[i].qtd;
+                        pecaexiste = 1;
+                        break;
+                }
+        }
+        if(!pecaexiste){
+                matriz[tamvetmat].codigo = f2[i].codigo;
+                matriz[tamvetmat].qtd_vendida = f2[i].qtd;
+                matriz[tamvetmat].valor_total = f2[i].preco * f2[i].qtd;
+                tamvetmat = tamvetmat+1;
+        }
+
+    }
+}
+int maiorvenda(reg_matriz matriz[]){
+    int maior = matriz[0].qtd_vendida;
+    int ondeemaior = 0;
+
+    for(i=1;i<tamvetmat;i++){
+        if(matriz[i].qtd_vendida > maior){
+            maior = matriz[i].qtd_vendida;
+            ondeemaior = i;
+        }
+    }
+    printf("\nA MAIOR VENDA FOI DA PEÇA COM CÓDIGO: %d",matriz[ondeemaior].codigo);
+
+    return matriz[ondeemaior].codigo;
+
+}
+
+void acharpecamaisvendida(int codigo,reg_filial f1[],reg_filial f2[]){
+    int achou = 0;
+
+    for(i=0;i<tamf1;i++){
+        if(codigo == f1[i].codigo){
+            printf("\nPEÇA MAIS VENDIDA: %s\n",f1[i].descricao);
+            printf("MODELO DE CARRO: %s\n",f1[i].modelo);
+            achou = 1;
+        }
+    }
+       if(!achou){
+
+        for(i=0;i<tamf2;i++){
+        if(codigo == f2[i].codigo){
+            printf("\nPEÇA MAIS VENDIDA: %s\n",f2[i].descricao);
+            printf("MODELO DE CARRO: %s\n",f2[i].modelo);
+            achou = 1;
+
+            }
+        }
+       }
+
+
+}
+
+int main(){
+
+    setlocale(LC_ALL,"");
+    int y;
+    reg_filial f1[tam] ={
+            {1,"Motor","Kombi","Volks",1900,2005,100,10},
+            {2,"suco de laranja","Celta","Chevrolet",2000,2010,100,10},
+            {3,"Suco de maracuja","Civic","Honda",1999,2012,150,115}
+};
+
+reg_filial f2[tam] = {
+        {1,"Motor","Kombi","Volks",1900,2005,100,10},
+        {4,"Caixa de câmbio","Lancer EVO","Mitsubishi",1980,2023,100,100},
+        {5,"Espelho dianteiro","Uno","Fiat",1999,2020,100,10}
+};
+
+reg_matriz matriz[2*tam];
+
+    imprimirfiliais(f1, 1,tamf1);
+    imprimirfiliais(f2, 2,tamf2);
+
+    criando_vet_da_matriz(matriz,f1);
+    verificar_existencia(matriz,f2);
+    imprimirmatriz(matriz);
+    y = maiorvenda(matriz);
+    acharpecamaisvendida(y,f1,f2);
+
+
+return 0 ;
+}
