@@ -1,0 +1,13 @@
+ALGORITMO num1
+INÍCIO
+
+    VAR INTEIRO: num, soma = 0;
+
+    PARA num de 1 ATÉ 300 FAÇA 
+
+        SE num %3 == 0
+            ENTÃO soma = soma + num;
+    FIM_PARA;
+
+    ESCREVA "A soma é",soma;
+FIM.

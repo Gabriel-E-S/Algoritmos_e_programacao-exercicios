@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese"); //Serve para conseguir colocar acento.
+
+    int num,soma;
+
+    soma = 0;
+
+    for(num=1;num<=300;num++){ //Laço de repetição
+
+         //Verifica se o número é múltiplo de 3.
+
+        if( num%3== 0){
+                soma = soma + num; // se condição é satisfeita, a variável soma recebe o número.
+
+        }
+    }
+
+    printf("A soma dos nçmeros é  %d\n",soma);
+
+getch();
+}
