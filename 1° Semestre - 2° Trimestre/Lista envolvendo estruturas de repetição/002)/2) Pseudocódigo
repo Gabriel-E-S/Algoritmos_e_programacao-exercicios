@@ -1,0 +1,14 @@
+ALGORITMO tabuada
+INÍCIO
+
+    VAR INTEIRO: num,c,resultado;
+
+    ESCREVA "Digite um número para ver a tabuada:";
+    LEIA num;
+
+    PARA c de 0 ATÉ 10 FAÇA
+        resultado = num * c;
+
+        ESCREVA num,"x",c,"=",resultado;
+    FIM_PARA;
+FIM.
