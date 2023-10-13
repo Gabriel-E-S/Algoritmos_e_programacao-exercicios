@@ -1,0 +1,15 @@
+ALGORITMO somafrac
+INICIO
+
+    VAR INTEIRO: denominador,n;
+        REAL: soma = 0;
+
+    ESCREVA "Digite o valor de n:";
+    LEIA n;
+
+    PARA denominador de 1 ATÉ n FAÇA
+        soma = soma + 1.0/denominador;
+    FIM_PARA;
+
+    ESCREVA "A soma é:",soma;
+FIM.        
