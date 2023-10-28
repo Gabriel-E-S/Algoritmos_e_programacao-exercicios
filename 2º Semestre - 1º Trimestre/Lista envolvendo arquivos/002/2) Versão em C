@@ -1,0 +1,119 @@
+#include <stdio.h>
+
+struct rpeca{
+    int nummaq;
+    int qtd;
+    };
+
+typedef struct rpeca rpeca;
+
+void criar_arquivo_geral(){
+
+    rpeca pecas[20] = {
+        {1, 10}, {510, 15}, {360, 8}, {1, 12}, {510, 20}, {360, 7}, {1, 18}, {510, 14}, {360, 9}, {1, 16},
+        {510, 11}, {360, 19}, {1, 6}, {510, 1360}, {360, 17}, {1, 5}, {510, 21}, {360, 4}, {1, 52}, {510, 25}
+    };
+
+    FILE *file = fopen("Arquivo geral.bin","wb");
+
+    if(file != NULL){
+
+        fwrite(pecas,sizeof(rpeca),20,file);
+        fclose(file);
+
+    }
+    else{
+        printf("erro ao abrir arquivo!\n");
+    }
+}
+
+void ler_arquivo(char arq[]){
+    rpeca copia;
+    int i=1;
+
+    FILE *file = fopen(arq,"rb");
+
+    if(file != NULL){
+
+        while(!feof(file)){
+            if(fread(&copia,sizeof(rpeca),1,file)==1){
+                printf(" %d -- MAQUINA: %d, NUM DE VENDAS: %d\n",i,copia.nummaq,copia.qtd);
+                i++;
+    }
+    }
+    fclose(file);
+    }
+    else{
+        printf("erro ao abrir arquivo de leitura!\n");
+    }
+}
+
+void separar() {
+    int m1 = -1, m2 = -1, m3 = -1; // achando os 3 numeros de peças
+    rpeca copia;
+
+    FILE *file = fopen("Arquivo geral.bin", "rb");
+
+    if (file != NULL) {
+        while (fread(&copia, sizeof(rpeca), 1, file) == 1) {
+            if (m1 == -1) {
+                m1 = copia.nummaq;
+            } else if (m1 != copia.nummaq && m2 == -1) {
+                m2 = copia.nummaq;
+            } else if (m1 != copia.nummaq && m2 != copia.nummaq) {
+                m3 = copia.nummaq;
+            }
+        }
+        fclose(file); 
+    } else {
+        printf("Erro ao abrir!\n");
+    }
+
+    printf("\n m1 = %d, m2 = %d, m3 = %d\n", m1, m2, m3);
+
+    FILE *maq1 = fopen("Maq1.bin","wb");
+    FILE *maq2 = fopen("Maq2.bin","wb");
+    FILE *maq3 = fopen("Maq3.bin","wb");
+    FILE *file1 = fopen("Arquivo geral.bin", "rb");
+
+    if(maq1 != NULL && maq2 != NULL && maq3 != NULL && file1!= NULL ){
+
+            while(fread(&copia,sizeof(rpeca),1,file1)){
+
+
+                if(copia.nummaq == m1){
+                    fwrite(&copia,sizeof(rpeca),1,maq1);
+                }
+                if(copia.nummaq == m2){
+                    fwrite(&copia,sizeof(rpeca),1,maq2);
+                }
+                if(copia.nummaq == m3){
+                    fwrite(&copia,sizeof(rpeca),1,maq3);
+                }
+
+            }
+        fclose(file1);fclose(maq1);fclose(maq2);fclose(maq3);
+
+
+    }else {
+        printf("Erro ao abrir!\n");
+    }
+}
+int main(){
+
+    criar_arquivo_geral();
+    ler_arquivo("Arquivo geral.bin");
+    separar();
+
+    printf("\n\nDADOS MAQ 1\n");
+    ler_arquivo("Maq1.bin");
+
+    printf("\n\nDADOS MAQ 2\n");
+    ler_arquivo("Maq2.bin");
+
+    printf("\n\nDADOS MAQ 3\n");
+    ler_arquivo("Maq3.bin");
+
+
+    return 0;
+}
