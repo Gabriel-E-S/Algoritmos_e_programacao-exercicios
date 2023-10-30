@@ -1,0 +1,57 @@
+ALGORITMO num2
+INÍCIO
+ 
+    TIPO rpeca = registro
+            INTEIRO:nummaq;
+            INTEIRO: qtd;
+         FIM_REGISTRO;
+         
+    VAR arqgeral, maq1, maq2, maq3 = ARQUIVO DE rpeca;
+
+    PROCEDIMENTO separar()
+    INÍCIO
+
+        VAR INTEIRO: m1 = -1,m2 = -1, m3 = -1;
+            rpeca copia;
+            LÓGICO: achou = .F.;
+
+        ABRA(arqgeral); ABRA(m1); ABRA(m2); ABRA(m3);
+
+        ENQUANTO .NÃO. FDA(arqgeral) .E. .NÃO. achou FAÇA
+
+            LEIA(arqgeral,copia);
+
+            SE m1 == -1
+                ENTÃO m1 = copia.nummaq;
+                SENÃO SE m1 <> copia.nummaq .E. m2 == -1
+                        ENTÃO m2 = copia.nummaq;
+                        SENÃO SE m1 <> copia.nummaq .E. m2 <> copia.nummaq
+                                ENTÃO m3 = copia.nummaq;
+                                      achou = .V.
+            AVANÇA(arqgeral,1);
+        FIM_ENQUANTO;
+
+        POSICIONE(arqgeral,1);
+
+        ENQUANTO .NÃO. FDA(arqgeral) FAÇA
+            LEIA(arqgeral,copia);
+
+             SE copia.nummaq == m1
+                ENTÃO GRAVA(maq1,copia);
+                
+                SE copia.nummaq == m2
+                ENTÃO GRAVA(maq2,copia);
+                
+                SE copia.nummaq == m3
+                ENTÃO GRAVA(maq3,copia);
+            AVANÇA(arqgeral,1);
+        FIM_ENQUANTO;
+
+        FECHA(arqgeral); FECHA(maq1); FECHA(maq2); FECHA(maq3);
+    FIM.
+
+    ALGORITMO PRINCIPAL
+    INÍCIO
+        separar();
+    FIM.
+FIM.
