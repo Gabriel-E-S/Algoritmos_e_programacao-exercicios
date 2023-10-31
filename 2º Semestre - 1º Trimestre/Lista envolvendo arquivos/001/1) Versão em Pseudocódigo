@@ -1,0 +1,67 @@
+ALGORITMO debito_credito
+INÍCIO
+		Reg_dc = REGISTRO
+			INTEIRO: num;
+			LITERAL: op;
+			REAL: valor;
+			LITERAL: data;
+
+		FIM_REGISTRO;
+		
+        VAR
+			d,c, dc: Arquivo de Reg_dc;
+			copia_d, copia_c, copia_dc: Reg_dc;
+
+		Procedimento criando()
+		INÍCIO
+
+			VAR
+				INTEIRO: cta;
+
+			ABRA(d); ABRA(c); ABRA(dc);
+
+			ENQUANTO .NÃO. FDA(d) .OU. .NÃO. FDA(c) FAÇA
+
+				SE .NÃO. FDA(d)
+					ENTÃO LEIA(d, copia_d);
+				SE .NÃO. FDA(c)
+					ENTÃO LEIA(c, copia_c);
+				SE copia_d.num == copia_c.num
+					ENTÃO 	Grava(dc, copia_d);
+						    Grava(dc, copia_c);
+						    Avança(d, 1);
+						    Avança(c,, 1);
+					SENÃO SE copia_d.num < copia_c.num
+						ENTÃO	cta == copia_d.num;
+							ENQUANTO cta == copia_d.num .E. .NÃO. TDA(d) FAÇA
+								Grava(dc, coipa_d);
+								Avança(d, 1);
+								LEIA(d, coipa_d);
+							FIM_Enquanto;
+						SENÃO	cta == copia_c.num;
+							ENQUANTO cta == copia_c.num .E. .NÃO. TDA(c) FAÇA
+								Grava(dc, coipa_c);
+								Avança(c, 1);
+								LEIA(c, coipa_c);
+							FIM_Enquanto;
+				SE FDA(d)
+					ENTÃO	ENQUANTO .NÃO. FDA(c) FAÇA
+							Grava(dc, copia_c);
+							Avança(c, 1);
+							LEIA(c, copia_c);
+						FIM_Enquanto;
+				SE FDA(c)
+					ENTÃO	ENQUANTO .NÃO. FDA(d) FAÇA
+							Grava(dc, copia_d);
+							Avança(d, 1);
+							LEIA(d, copia_d);
+						FIM_Enquanto;
+			FIM_Enquanto;
+			Fecha(dc); Fecha(d); Fecha(c);
+		FIM.
+
+        ALGORITMO PRINCIPAL
+        INÍCIO
+            criando();
+        FIM.
+FIM.
