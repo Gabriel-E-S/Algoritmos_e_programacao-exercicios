@@ -1,0 +1,96 @@
+ALGORITMO num3
+INÍCIO
+
+    TIPO reg_filial = REGISTRO
+
+            INTEIRO: codigo;
+            LITERAL: descricao;
+            LITERAL: modelo;
+            LITERAL: marca;
+            INTEIRO: inicio,fim;
+            REAL: preco;
+            INTEIRO: qtd;
+         FIM_REGISTRO;
+
+         reg_matriz = REGISTRO
+
+            INTEIRO: codigo;
+            INTEIRO: qtd_vendida;
+            REAL: valor_total;
+            
+        FIM_REGISTRO;
+
+    VAR filial1,filial2 = ARQUIVO DE reg_filial;
+        matriz = ARQUIVO DE reg_matriz;
+        INTEIRO: posmatriz = 1;
+
+    PROCEDIMENTO criando_vet_matriz()
+    INÍCIO
+
+        VAR reg_matriz copia;
+            reg_matriz copiam;
+
+        ABRA(filial1);
+        ABRA(matriz);
+
+        ENQUANTO .NÃO. FDA(filial1) FAÇA
+            LEIA(filial1,copia);
+
+            copiam[posmatriz].codigo = copia.codigo;
+            copiam[posmatriz].qtd_vendida = copia.qtd;
+            copiam[posmatriz].valor_total = copia.preco * copia.qtd;
+
+            POSICIONE(matriz,posmatriz);
+            GRAVA(matriz,copiam);
+            posmatriz = posmatriz+1;
+        FIM_ENQUANTO;
+
+        FECHA(filial1);
+        FECHA(matriz);
+    FIM.
+
+    PROCEDIMENTO verificar_existencia()
+    INÍCIO
+
+        VAR LÓGICO: existe;
+            reg_matriz copia;
+            reg_matriz copiam;
+
+        ABRA(filial2);
+        ABRA(matriz);
+
+        ENQUANTO .NÃO. FDA(filial2) FAÇA
+
+            existe = .F.;
+
+            LEIA(filial2,copia);
+            POSICIONE(matriz,1);
+
+            ENQUANTO .NÃO. FDA(matriz) FAÇA
+
+                LEIA(matriz,copiam);
+
+                SE copia.codigo == copiam.codigo
+                    ENTÃO copiam.qtd_vendida = copiam.qtd_vendida + copia.qtd;
+                          copiam.valor_total = copiam.valor_total + copia.qtd * copia.preco;
+                          existe = .V.;
+                          GRAVA(matriz,copiam);
+                          SAIA;
+                AVANÇA(matriz,1);
+            FIM_ENQUANTO;
+
+            SE .NÃO. existe
+                ENTÃO   POSICIONE(matriz,posmatriz);
+                        copiam.codigo = copia[i].codigo;
+                        copiam.qtd_vendida = copia[i].qtd;
+                        copiam.valor_total = copia[i].preco * copia[i].qtd;
+                        GRAVA(matriz,copiam);
+                        posmatriz = posmatriz + 1;
+
+            
+            AVANÇA(filial2,1);
+        FIM_ENQUANTO;
+    FIM.
+
+    
+
