@@ -53,7 +53,7 @@ INÍCIO
         PARA i de 1 ATÉ tamvetmat FAÇA
             ESCREVA "Código:",matriz[i].codigo;
             ESCREVA "Quantidade vendida:",matriz[i].qtd_vendida;
-            ESCREVA "Valor total:",matriz[i].valor_total
+            ESCREVA "Valor total:",matriz[i].valor_total;
         FIM_PARA;
     FIM;
 
@@ -129,7 +129,7 @@ INÍCIO
             SE codigo == f1[i].codigo
                     ENTÃO ESCREVA("PEÇA MAIS VENDIDA: ",f1[i].descricao);
                           ESCREVA("MODELO DE CARRO: ",f1[i].modelo);
-                          achou = .V,;
+                          achou = .V.;
         FIM_PARA;
 
         SE .NÃO. achou 
