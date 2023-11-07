@@ -22,13 +22,14 @@ INÍCIO
 
     VAR filial1,filial2 = ARQUIVO DE reg_filial;
         matriz = ARQUIVO DE reg_matriz;
-        INTEIRO: posmatriz = 1;
+        
 
     PROCEDIMENTO criando_vet_matriz()
     INÍCIO
 
-        VAR reg_matriz copia;
+        VAR reg_filial copia;
             reg_matriz copiam;
+            INTEIRO: posmatriz = 1;
 
         ABRA(filial1);
         ABRA(matriz);
@@ -53,7 +54,7 @@ INÍCIO
     INÍCIO
 
         VAR LÓGICO: existe;
-            reg_matriz copia;
+            reg_filial copia;
             reg_matriz copiam;
 
         ABRA(filial2);
