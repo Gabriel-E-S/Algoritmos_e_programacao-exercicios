@@ -1,0 +1,17 @@
+ALGORITMO fibonacci
+INÍCIO
+
+    VAR INTEIRO: r_anterior, rfinal,soma,i;
+
+    rfinal = 1;
+    r_anterior = 0;
+
+    PARA i DE 1 ATÉ 20 FAÇA
+
+        soma = r_anterior + rfinal;
+        rfinal = r_anterior;
+        r_anterior = soma;
+
+        ESCREVA i,"Termo = ",soma;
+    FIM_PARA;
+FIM.

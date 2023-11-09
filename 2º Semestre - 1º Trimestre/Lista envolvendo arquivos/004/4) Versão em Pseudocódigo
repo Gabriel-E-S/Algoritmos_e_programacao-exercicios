@@ -1,0 +1,77 @@
+ALGORITMO biblioteca arquivo 
+INÍCIO
+    
+    TIPO registro_livro = REGISTRO
+
+            INTEIRO: codigo;
+            LÓGICO: doado;
+            LITERAL: nomeobra[30];
+            LITERAL: nomeautor[30];
+            LITERAL: editora[30];
+            INTEIRO: numpag;
+
+         FIM_REGISTRO;
+
+
+    VAR 
+        exatas, humanas, biologicas = ARQUIVO de registro_livro;
+        INTEIRO: i;
+
+    FUNÇÃO LÓGICA: achou(LITERAL: arquivo ,INTEIRO: codigo, INTEIRO:tipo_comp,LITERAL: nome[30])
+    INÍCIO
+
+        VAR registro_livro copia;
+
+        ESCOLHA tipo_comp
+
+            CASO tipo_comp == 1
+
+                ABRA(arquivo);
+
+                ENQUANTO .NÃO. FDA(arquivo) FAÇA
+                    LEIA(arquivo,copia);
+
+                    SE codigo == copia.codigo
+                        ENTÃO ESCREVA "Encontrado!";
+                        FECHA(arquivo);
+                        RETORNE .V.;
+                        SAIA;
+                    
+                    AVANÇA(arquivo, 1);
+
+                FIM_ENQUANTO;
+
+                ESCREVA "NÃO FOI ENCONTRADO CADASTRO!";
+                FECHA(arquivo);
+                RETORNE .F.;
+        
+            CASO tipo_comp == 2
+
+                ABRA(arquivo);
+
+                ENQUANTO .NÃO. FDA(arquivo) FAÇA
+                    LEIA(arquivo,copia);
+
+                    SE codigo == copia.nomeobra
+                        ENTÃO ESCREVA "Encontrado!";
+                        FECHA(arquivo);
+                        RETORNE .V.;
+                        SAIA;
+                    
+                    AVANÇA(arquivo, 1);
+
+                FIM_ENQUANTO;
+
+                ESCREVA "NÃO FOI ENCONTRADO CADASTRO!";
+                FECHA(arquivo);
+                RETORNE .F.;
+
+        FIM_ESCOLHA;
+    FIM.
+
+    PROCEDIMENTO imprimirgeral()
+
+    CONTINUA...
+
+
+
