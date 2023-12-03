@@ -15,63 +15,293 @@ INÍCIO
 
     VAR 
         exatas, humanas, biologicas = ARQUIVO de registro_livro;
-        INTEIRO: i;
+        
+    PROCEDIMENTO imprimecopia(registro_livro copia)
+    INÍCIO
 
-    FUNÇÃO LÓGICA: achou(LITERAL: arquivo ,INTEIRO: codigo, INTEIRO:tipo_comp,LITERAL: nome[30])
+        ESCREVA "CÓDIGO:",copia.codigo;
+        SE copia.doado
+            ENTÃO ESCREVA "DOADO: SIM";
+            SENÃO ESCREVA "DOADO: NÃO";
+        
+        ESCREVA "NOME DA OBRA:",copia.nomeobra;
+        ESCREVA "NOME DO AUTOR:",copia.nomeautor;
+        ESCREVA "EDITORA:",copia.editora;
+        ESCREVA "NUM DE PAGS:",copia.numpag;
+    FIM.
+
+    PROCEDIMENTO consultaporcodigo(INTEIRO: codigo, LITERAL: nomearquivo)
+    INÍCIO
+
+        VAR registro_livro: copia;
+            LÓGICO: achei = .F.;
+
+        ABRA(nomearquivo);
+
+        ENQUANTO  .NÃO. FDA(nomearquivo) FAÇA
+
+            SE copia.codigo == codigo
+                ENTÃO achei = .V.;
+                      imprimecopia(copia);
+
+            AVANÇA(nomearquivo,1);
+        FIM_ENQUANTO;
+
+        SE .NÃO. achei 
+            ENTÃO ESCREVA "LIVRO NÃO ENCONTRADO NO ARQUIVO";
+
+        FECHA(nomearquivo);
+    FIM.
+
+    PROCEDIMENTO menuconsulta()
+    INÍCIO
+
+        VAR INTEIRO: codigo = 1, opc;
+
+        ENQUANTO codigo <> -1 FAÇA
+
+            ESCREVA "Digite o código da obra(-1 para sair):";
+            LEIA codigo;
+
+            SE codigo == -1
+                ENTÃO SAIA;
+            
+            ESCREVA"Digite a área da obra ( 1- exatas, 2- humanas, 3- biomedicas):";
+            LEIA opc;
+
+            ESCOLHA opc
+
+                CASO opc == 1:
+                    consultaporcodigo(codigo,"exatas");
+                   
+               
+                CASO opc == 2:
+                    consultaporcodigo(codigo,"humanas");
+                   
+               
+                CASO opc == 3:
+                    consultaporcodigo(codigo,"biomedicas");
+            FIM_ESCOLHA;
+        FIM_ENQUANTO;
+    FIM.
+
+    PROCEDIMENTO consultapornome(LITERAL: nome, LITERAL: nomearquivo)
+    INÍCIO
+
+        VAR registro_livro: copia;
+            LÓGICO: achei = .F.;
+
+        ABRA(nomearquivo);
+
+        ENQUANTO  .NÃO. FDA(nomearquivo) FAÇA
+
+            SE copia.nomeobra == nome
+                ENTÃO achei = .V.;
+                      imprimecopia(copia);
+
+            AVANÇA(nomearquivo,1);
+
+        FIM_ENQUANTO;
+
+        SE .NÃO. achei 
+            ENTÃO ESCREVA "LIVRO NÃO ENCONTRADO NO ARQUIVO";
+
+        FECHA(nomearquivo);
+    FIM.
+
+    PROCEDIMENTO menuconsultanome()
+    INÍCIO
+
+        VAR INTEIRO: opc;
+            LITERAL nome[30];
+
+        ENQUANTO nome <> "-1" FAÇA
+
+            ESCREVA "Digite o nome da obra(-1 para sair):";
+            LEIA nome;
+
+            SE nome == "-1"
+                ENTÃO SAIA;
+            
+            ESCREVA"Digite a área da obra ( 1- exatas, 2- humanas, 3- biomedicas):";
+            LEIA opc;
+
+            ESCOLHA opc
+
+                CASO opc == 1:
+                    consultapornome(codigo,"exatas");
+                   
+               
+                CASO opc == 2:
+                    consultapornome(codigo,"humanas");
+                   
+               
+                CASO opc == 3:
+                    consultapornome(codigo,"biomedicas");
+            FIM_ESCOLHA;
+        FIM_ENQUANTO;
+    FIM.
+
+    PROCEDIMENTO listadoados(LITERAL: nomearq)
     INÍCIO
 
         VAR registro_livro copia;
 
-        ESCOLHA tipo_comp
+        ABRA(nomearq);
 
-            CASO tipo_comp == 1
+        ENQUANTO .NÃO. FDA(nomearq) FAÇA
 
-                ABRA(arquivo);
+            SE copia.doado == .V. 
+                ENTÃO imprimecopia(copia);
 
-                ENQUANTO .NÃO. FDA(arquivo) FAÇA
-                    LEIA(arquivo,copia);
+            AVANÇA(nomearq,1);
+        FIM_ENQUANTO;
+        FECHA(nomearq);
 
-                    SE codigo == copia.codigo
-                        ENTÃO ESCREVA "Encontrado!";
-                        FECHA(arquivo);
-                        RETORNE .V.;
-                        SAIA;
-                    
-                    AVANÇA(arquivo, 1);
-
-                FIM_ENQUANTO;
-
-                ESCREVA "NÃO FOI ENCONTRADO CADASTRO!";
-                FECHA(arquivo);
-                RETORNE .F.;
-        
-            CASO tipo_comp == 2
-
-                ABRA(arquivo);
-
-                ENQUANTO .NÃO. FDA(arquivo) FAÇA
-                    LEIA(arquivo,copia);
-
-                    SE codigo == copia.nomeobra
-                        ENTÃO ESCREVA "Encontrado!";
-                        FECHA(arquivo);
-                        RETORNE .V.;
-                        SAIA;
-                    
-                    AVANÇA(arquivo, 1);
-
-                FIM_ENQUANTO;
-
-                ESCREVA "NÃO FOI ENCONTRADO CADASTRO!";
-                FECHA(arquivo);
-                RETORNE .F.;
-
-        FIM_ESCOLHA;
     FIM.
 
-    PROCEDIMENTO imprimirgeral()
+    PROCEDIMENTO menudoados ()
+    INÍCIO 
+        ESCREVA "**********DOADOS ÁREA EXATAS**********";
+        listadoados("exatas");
+        ESCREVA "**********DOADOS ÁREA HUMANAS**********";
+        listadoados("humanas");
+        ESCREVA "**********DOADOS ÁREA BIOMÉDICAS**********";
+        listadoados("biomedicas");
+    FIM.
 
-    CONTINUA...
+    PROCEDIMENTO listadoadosfaixa(LITERAL: nomearq)
+    INÍCIO
+
+        VAR registro_livro copia;
+
+        ABRA(nomearq);
+
+        ENQUANTO .NÃO. FDA(nomearq) FAÇA
+
+            SE copia.doado == .F.  .E. copia.numpag > 100 .E. copia.numpag < 300
+                    ENTÃO imprimecopia(copia);
+
+            AVANÇA(nomearq,1);
+        FIM_ENQUANTO;
+
+        FECHA(nomearq);
+    FIM.
+
+    PROCEDIMENTO menudoadosfaixa ()
+    INÍCIO 
+        ESCREVA "**********N DOADOS COM PG ENTRE 100 E 300  ÁREA EXATAS**********";
+        listadoados("exatas");
+        ESCREVA "**********N DOADOS COM PG ENTRE 100 E 300 ÁREA HUMANAS**********";
+        listadoados("humanas");
+        ESCREVA "**********N DOADOS COM PG ENTRE 100 E 300 ÁREA BIOMÉDICAS**********";
+        listadoados("biomedicas");
+    FIM.
+
+    PROCEDIMENTO alterarregistro(INTEIRO: codigo, LITERAL: nomearq)
+    INÍCIO
+
+        VAR registro_livro copia;
+            INTEIRO: simounao;
+            LÓGICO: existe = .F. ;
+
+        ABRA(nomearq);
+
+        ENQUANTO .NÃO. FDA(nomearq) && .NÃO. existe FAÇA
+
+            SE copia.codigo == codigo 
+                ENTÃO   ESCREVA "Digite o novo nome da obra: ";
+                        LEIA copia.nomeobra;
+                            
+                        ESCREVA "Digite o novo nome do autor:";
+                        LEIA copia.nomeautor;
+                            
+                         ESCREVA "Digite o novo nome da Editora:";
+                        LEIA copia.editora;
+                            
+                        ESCREVA "Esse livro foi: 1 - doado, 2 - comprado:";
+                        LEIA simounao;
+                            
+                        SE simounao == 1
+                             ENTÃO copia.doado = .V. ;
+                             SENÃO copia.doado = .F. ;
+                            
+                        ESCREVA "Digite o novo número de páginas:";
+                        LEIA copia.numpag;
+
+                        ESCREVA "Digite o novo código";
+                        LEIA copia.codigo
+
+                        existe = .V. ;
+
+                        GRAVA(nomearq,copia);
+
+                AVANÇA(nomearq,1);
+        FIM_ENQUANTO;
+
+        FECHA(nomearq);
+
+        SE .NÃO. existe 
+             ENTÃO ESCREVA "LIVRO NÃO ENCONTRADO!";
+    FIM.
+
+    PROCEDIMENTO menualterarregistro()
+    INÍCIO
+
+        VAR INTEIRO: codigo,opc;
+
+        ESCREVA "Digite o código da obra para alterar:";
+        LEIA codigo;
+
+        ESCREVA "Digite a área da obra ( 1- exatas, 2- humanas, 3- biomedicas):";
+        LEIA opc;
 
 
 
+        ESCOLHA opc
+
+                CASO opc == 1:
+                    alterarregistro(codigo,"exatas.dat");
+                    
+                
+                CASO opc == 2:
+                    alterarregistro(codigo,"humanas.dat");
+                    
+                
+                CASO opc == 3:
+                    alterarregistro(codigo,"biomedicas.dat");
+        FIM_ESCOLHA;
+    FIM.      
+    
+    PROCEDIMENTO excluirregistro(INTEIRO: codigo, LITERAL: nomearq[])
+    INÍCIO
+
+        VAR registro_livro copia;
+
+        ABRA(nomearq);
+
+        ENQUANTO .NÃO. FDA(nomearq) FAÇA
+
+        //CONTINUA...
+                
+
+            
+
+        
+
+    
+
+    
+    
+
+
+
+            
+            
+                    
+
+
+
+
+
+    
