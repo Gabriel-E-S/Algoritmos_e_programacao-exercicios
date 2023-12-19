@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main()
+{
+
+    setlocale(LC_ALL,"Portuguese");
+
+    int i, num, divisores;
+    int soma;
+
+    soma = 0;
+
+    printf("*****SOMA DOS NÚMEROS PRIMOS ENTRE 1 E 1000*****\n\n");
+
+    for(num=1; num<=1000; num++)
+    {
+
+        divisores = 0;
+
+        for(i=1; i<=num; i++)
+        {
+
+            if(num % i == 0 )
+            {
+                divisores = divisores + 1;
+            }
+        }
+        if(divisores == 2)
+        {
+            printf("\tNúmero primo! %d \n",num);
+            soma = soma + num;
+        }
+
+
+    }
+
+
+    printf("\n\nA soma é: %d",soma);
+}
+

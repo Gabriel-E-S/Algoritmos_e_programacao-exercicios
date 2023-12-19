@@ -1,0 +1,27 @@
+ALGORITMO num_6
+INÍCIO
+
+    VAR INTEIRO: i, num, divisores, soma;
+
+    soma = 0;
+
+    // A definição de número primo diz que ele só pode ser divisível por 1 e por ele mesmo
+    
+
+    PARA num de 1 ATÉ 1000 FAÇA
+
+        divisores = 0;
+
+        PARA i de 1 ATÉ num FAÇA
+
+            SE num % i == 0
+                ENTÃO divisores = divisores + 1;
+        FIM_PARA;
+
+        SE divisores == 2
+            ENTÃO soma = soma + num;
+    FIM_PARA;
+
+    ESCREVA "A soma é:", soma;
+
+FIM.
