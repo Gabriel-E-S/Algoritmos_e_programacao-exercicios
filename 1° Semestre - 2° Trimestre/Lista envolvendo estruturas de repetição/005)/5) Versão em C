@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+setlocale(LC_ALL,"Portuguese");
+
+int num, maiorn, menorn, cont;
+
+
+printf("*****Veja o maior e menor número entre 20 deles*****\n\n");
+
+printf("Digite o 1° número:\n");
+scanf("%d",&num);
+
+maiorn = num;
+menorn = num;
+
+for(cont=1;cont<=19;cont++) {
+
+printf("Digite o %d número:\n",cont+1);
+scanf("%d",&num);
+
+    if(num>maiorn){
+		maiorn = num;
+	}
+	if(num<menorn){
+		menorn = num;
+	}
+}
+
+printf("O maior número é %d\n",maiorn);
+printf("O menor número é %d\n",menorn);
+
+getch();
+}

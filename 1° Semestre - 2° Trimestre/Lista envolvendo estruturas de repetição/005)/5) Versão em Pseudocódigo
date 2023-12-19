@@ -1,0 +1,25 @@
+ALGORITMO num_5
+INÍCIO
+
+    VAR INTEIRO: num, maiorn, menorn, cont;
+
+    ESCREVA "Digite o 1° número";
+    LEIA num;
+
+    maiorn = num;
+    menorn = num;
+
+    PARA cont DE 1 ATÉ 19 FAÇA
+
+        ESCREVA "Digite o ",cont, "número";
+        LEIA num;
+
+        SE num > maiorn
+            ENTÃO maiorn = num;
+        SE num < menorn
+            ENTÃO menorn = num;
+    FIM_PARA;
+
+    ESCREVA "O maior número é",maiorn;
+    ESCREVA "O menor número é",menorn;
+FIM.
