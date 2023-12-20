@@ -17,5 +17,6 @@ int main(){
 
         printf("\n%d x %d = %d",num, c, resultado);
     }
-getch();
+    getch();
+    return 0;
 }

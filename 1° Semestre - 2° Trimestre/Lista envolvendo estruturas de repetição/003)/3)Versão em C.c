@@ -10,7 +10,7 @@ int main() {
     
     soma = 0.0;
     
-    printf("****Veja o valor de H=1 + 1/2 + 1/N sendo N um número de sua escolha******\n\n");
+    printf("****Veja o valor de H=1 + 1/2 + 1/N sendo N um nï¿½mero de sua escolha******\n\n");
     
     printf("Escolha um valor inteiro para N:\n");
     scanf("%d",&n);
@@ -20,7 +20,8 @@ int main() {
 		soma = soma+1.0/denominador;
 	}
 	
-	printf("\nO valor de H quando N é %d vale: %f",n,soma);
+	printf("\nO valor de H quando N ï¿½ %d vale: %f",n,soma);
 	
 	getch();
+  return 0;
 }

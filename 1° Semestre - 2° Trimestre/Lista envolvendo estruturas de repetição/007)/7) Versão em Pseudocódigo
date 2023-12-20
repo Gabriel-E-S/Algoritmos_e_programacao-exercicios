@@ -1,0 +1,22 @@
+ALGORITMO num_7
+INÍCIO
+
+    VAR REAL: nominador, denominador, soma;
+        INTEIRO: cont;
+
+    soma = 0.0;
+    nominador = 1;
+    denominador = 1;
+
+    PARA cont DE 1 ATÉ 50 FAÇA
+        soma = soma + nominador/denominador;
+
+        nominador = nominador + 2;
+        denominador = denominador + 1;
+    FIM_PARA;
+
+    ESCREVA "A soma total é:", soma;
+FIM.
+    
+
+    

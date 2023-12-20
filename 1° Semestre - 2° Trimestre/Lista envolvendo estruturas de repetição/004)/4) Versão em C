@@ -17,4 +17,5 @@ int main(){
 
         printf("%d° termo = %d\n",i+1,soma);
     }
+    return  0;
 }

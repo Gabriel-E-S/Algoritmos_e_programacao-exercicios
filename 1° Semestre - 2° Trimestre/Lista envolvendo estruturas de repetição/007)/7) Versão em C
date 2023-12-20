@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese");
+
+    int cont;
+    float soma, nominador, denominador;
+
+    soma = 0.0;
+    nominador = 1;
+    denominador = 1;
+
+    for(cont=1;cont<=50;cont++){
+
+            soma = soma + nominador/denominador ;
+
+            nominador = nominador + 2;
+            denominador = denominador + 1;
+    }
+    printf("A soma total é %f:\n",soma);
+    return 0;
+}

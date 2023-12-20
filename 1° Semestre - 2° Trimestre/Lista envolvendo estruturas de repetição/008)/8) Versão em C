@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese");
+
+    int n, a1, r, PA, cont;
+
+    PA=0;
+
+    printf("******CALCULADORA DE PROGRESSÃO ARITMÉTICA******\n\n\a");
+
+    printf("Quantos termos deseja ver?:\n");
+    scanf("%d",&n);
+
+    printf("Digite o primeiro termo:\n");
+    scanf("%d",&a1);
+    fflush(stdin);
+
+    printf("Digite a razão:\n");
+    scanf("%d",&r);
+
+    for(cont=1;cont<=n;cont++){
+        PA = a1+(cont-1)*r;
+        printf("\to %d termo é %d\n",cont, PA);
+    }
+    getch();
+
+    return 0;
+}
+

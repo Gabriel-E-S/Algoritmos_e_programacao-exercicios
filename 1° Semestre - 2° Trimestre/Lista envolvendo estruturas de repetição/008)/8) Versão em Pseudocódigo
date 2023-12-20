@@ -1,0 +1,21 @@
+ALGORITMO num_8
+INÍCIO
+
+    VAR INTEIRO: n, a1, r, PA, cont ;
+
+    PA = 0;
+
+    ESCREVA "Quantos termos deseja ver?";
+    LEIA n;
+
+    ESCREVA "Digite o 1° termo:";
+    LEIA a1;
+
+    ESCREVA "Digite a razão da PA:";
+    LEIA r;
+
+    PARA cont DE 1 ATÉ n FAÇA
+        PA = a1 + (cont - 1)* r;
+        ESCREVA "O", cont , "termo é", PA;
+    FIM_PARA;
+FIM.
