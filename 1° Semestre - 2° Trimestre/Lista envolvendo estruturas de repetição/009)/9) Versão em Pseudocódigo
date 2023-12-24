@@ -1,0 +1,15 @@
+ALGORITMO num_9
+INÍCIO
+
+    VAR C, F ; 
+
+    PARA F DE 50 ATÉ 150 FAÇA 
+        C = 5 * (F-32)/9 ; 
+
+        ESCREVA "O valor", F, "°F equivale a ",C, "°C";
+
+    FIM_PARA;
+
+FIM.
+
+

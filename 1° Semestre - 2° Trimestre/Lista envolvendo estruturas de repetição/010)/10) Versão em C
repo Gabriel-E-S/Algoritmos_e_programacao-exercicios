@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese");
+
+    int cont;
+    double soma, denominador;
+
+	soma= 0.0;
+    denominador = 500;
+
+    for(cont=1;cont<=5;cont++){
+
+	 soma = soma + 2 / denominador - 5/ (denominador-50);
+      denominador = denominador -100;
+
+        }
+
+    printf("A soma é %lf:",soma);
+
+    return 0;
+}

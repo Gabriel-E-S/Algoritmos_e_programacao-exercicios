@@ -1,0 +1,16 @@
+ALGORITMO num_10
+INÍCIO
+
+    VAR REAL: soma, denominador;
+
+    soma = 0;
+    denominador = 500;
+
+    PARA cont de 1 ATÉ 5 FAÇA
+        soma = soma + 2 / denominador - 5 / (denominador - 50) ;
+        denominador = denominador - 100;
+
+    FIM_PARA;
+    
+    ESCREVA "A soma é", soma;
+FIM;

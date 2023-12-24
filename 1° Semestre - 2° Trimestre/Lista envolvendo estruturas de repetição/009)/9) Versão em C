@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese");
+
+    int C, F;
+
+    printf("**********Tabela de conversão de Unidades********\n\n");
+
+   for(F=50; F<=150; F++){
+
+    C = 5*(F-32)/9;
+
+    printf("\tO valor %d °F equivale a %d °C \n",F, C);
+   }
+
+    getch();
+    return 0;
+    }
