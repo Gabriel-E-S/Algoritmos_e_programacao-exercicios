@@ -1,0 +1,12 @@
+ALGORITMO num5
+INÍCIO
+     
+    VAR REAL: valor_inicial, valor_final;
+
+    ESCREVA "Digite o valor inicial depositado:" ;
+    LEIA valor_inicial;
+
+    valor_final = valor_inicial * 1.007;
+
+    ESCREVA "O rendimento após um mês será de:", valor_final ,"reais" ;
+ FIM.

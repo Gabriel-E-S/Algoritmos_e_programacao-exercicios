@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(){
+
+    float preco_venda, preco_custo, percentual;
+
+    printf("Digite o preco de custo do produto:\n");
+    scanf("%f",&preco_custo);
+
+    printf("Digite o percentual em %%:\n");
+    scanf("%f",&percentual);
+
+    preco_venda = preco_custo + (percentual/100) * preco_custo ;
+
+    printf("O preco de venda e: %.2f",preco_venda);
+
+    getch();
+    return 0;
+
+}

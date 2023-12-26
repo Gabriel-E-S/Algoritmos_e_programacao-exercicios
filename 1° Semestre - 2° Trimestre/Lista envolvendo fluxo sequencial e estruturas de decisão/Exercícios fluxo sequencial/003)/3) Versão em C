@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    int A, B , auxiliar;
+
+    printf("Digite o valor A: \n");
+    scanf("%d",&A);
+
+    printf("Digite o valor A: \n");
+    scanf("%d",&B);
+
+    printf("\nVALOR DE A ANTES: %d\n",A);
+    printf("VALOR DE B ANTES: %d\n",B);
+
+    auxiliar = A ;
+    A = B ;
+    B = auxiliar ;
+
+    printf("\nVALOR DE A DEPOIS: %d\n",A);
+    printf("VALOR DE B DEPOIS: %d\n",B);
+
+    getch();
+    return 0;
+}

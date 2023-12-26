@@ -1,0 +1,21 @@
+ALGORITMO num2
+INÍCIO
+
+    VAR REAL: salariofixo, vendas, stotal ; 
+        LITERAL: nome[20];
+
+    ESCREVA "Digite o nome do vendedor:" ; 
+    LEIA nome ; 
+
+    ESCREVA "Digite o salario fixo desse vendedor:";
+    LEIA salariofixo ; 
+
+    ESCREVA "Digite o total de vendas em reais:" ; 
+    LEIA vendas ; 
+
+    stotal = salariofixo + 0.12 * vendas ; 
+
+    ESCREVA "Vendedor:", nome;
+    ESCREVA "Salário fixo: ",salariofixo;
+    ESCREVA "Salário no fim do mês:",stotal;
+FIM.

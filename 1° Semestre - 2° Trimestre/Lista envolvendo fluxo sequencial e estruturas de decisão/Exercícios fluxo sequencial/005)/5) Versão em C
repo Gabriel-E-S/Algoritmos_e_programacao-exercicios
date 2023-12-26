@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(){
+
+    float valor_inicial, valor_final;
+
+    printf("Digite o valor inicial depositado:\n");
+    scanf("%f",&valor_inicial);
+
+    valor_final = valor_inicial * 1.007;
+
+    printf("O valor R$%.2f apos um mes sera de R$%.2f\n",valor_inicial,valor_final);
+    getch();
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(){
+
+    float cot_dolar, valor_final, num_dol;
+
+    printf("Digite a cotacao do dolar atual:\n");
+    scanf("%f",&cot_dolar);
+
+    printf("Digite a qtd de dolares disponiveis\n");
+    scanf("%f",&num_dol);
+
+    valor_final = cot_dolar * num_dol;
+
+    printf("O valor %.2f US convertido em reais e: R$ %.2f \n",num_dol,valor_final);
+
+    getch();
+    return 0;
+}

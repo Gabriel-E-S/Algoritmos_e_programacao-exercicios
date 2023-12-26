@@ -1,0 +1,15 @@
+ALGORTIMO num8
+INÍCIO
+
+    VAR REAL:  preco_fabrica, preco_dist, preco_imp, preco_final
+
+    ESCREVA "Digite o preço de fábrica em dinheiro";
+    Leia preco_fabrica;
+
+    preco_imp = preco_fabrica * 0.45;
+    preco_dist = preco_imp * 0.30 ;
+
+    preco_final = preco_fabrica + preco_imp + preco_dist;
+
+    ESCREVA "o custo de um carro de" ,preco_fabrica, "será de" ,preco_final ,"ao consumidor";
+FIM.

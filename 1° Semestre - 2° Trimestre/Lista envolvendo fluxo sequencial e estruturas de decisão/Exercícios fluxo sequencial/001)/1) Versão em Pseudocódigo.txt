@@ -1,0 +1,16 @@
+ALGORITMO num1
+INÍCIO
+
+    VAR consumo_combustivel, distancia, media_consumo ;
+
+    ESCREVA "Informe a distância percorrida:";
+    LEIA distancia;
+
+    ESCREVA "Informe o consumo:";
+    LEIA consumo_combustivel ; 
+
+    media_consumo = distancia / consumo_combustivel ; 
+
+    ESCREVA "O consumo foi de ", media_consumo ; 
+
+FIM.

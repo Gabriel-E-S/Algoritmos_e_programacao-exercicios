@@ -1,0 +1,21 @@
+ALGORITMO num3
+INÍCIO
+
+    VAR A, B, auxiliar ; 
+
+    ESCREVA "Digite o valor de A:";
+    LEIA A;
+
+    ESCREVA "Digite o valor de B:";
+    LEIA B;
+
+    ESCREVA "VALOR DE A ANTES -",A ;
+    ESCREVA "VALOR DE B ANTES -",B ;
+
+    auxiliar = A ;
+    A = B ;
+    B = auxiliar ;
+
+    ESCREVA "VALOR DE A DEPOIS -",A ;
+    ESCREVA "VALOR DE B DEPOIS -",B ;
+FIM.

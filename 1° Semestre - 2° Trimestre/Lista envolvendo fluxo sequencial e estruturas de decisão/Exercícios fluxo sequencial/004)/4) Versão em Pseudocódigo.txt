@@ -1,0 +1,16 @@
+ALGORITMO num4
+INÍCIO
+
+    VAR REAL: cot_dolar, num_dol, valor_final; //declaração de variáveis 
+
+    ESCREVA " Bem vindo, digite a cotação do dólar atual:" ;
+    LEIA cot_dolar;  //entrada de dados
+
+    ESCREVA "digite a quantidade de dólares disponíveis: " ;
+    LEIA num_dol;  //entrada de dados
+
+    valor_final = cot_dolar * num_dol ;   //processamento 
+
+    ESCREVA " O valor",num_dol, " convertido em reais equivale a:", valor_final ,"reais";
+
+FIM.

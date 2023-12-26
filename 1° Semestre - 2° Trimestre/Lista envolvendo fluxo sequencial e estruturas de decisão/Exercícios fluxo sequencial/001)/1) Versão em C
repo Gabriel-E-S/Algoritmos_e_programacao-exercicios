@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(){
+  float consumo_combustivel, distancia, media_consumo;
+
+  printf("Informe a distancia percorrida (Km):");
+  scanf("%f",&distancia);
+  printf("Informe o consumo de combustivel (L):");
+  scanf("%f",&consumo_combustivel);
+  media_consumo = distancia / consumo_combustivel;
+
+  printf("O consumo medio foi de:%5.1f Km/L",media_consumo);
+  getch();
+  return 0;
+}

@@ -1,0 +1,13 @@
+ALGORITMO num6
+INÍCIO
+    VAR REAL:  valor_produto, parcela; 
+
+    ESCREVA "Consulte aqui o valor da parcela";
+
+    ESCREVA " digite o valor do produto em reais";
+    LEIA valor_produto;
+
+    parcela = valor_produto / 6
+
+    ESCREVA " O valor da parcela será de:", parcela ,"reais";
+FIM.

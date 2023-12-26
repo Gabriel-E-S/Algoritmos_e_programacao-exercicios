@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(){
+
+    float preco_fabrica, preco_dist, preco_imp ,preco_final;
+
+    printf("Digite o preço de fabrica do carro:\n");
+    scanf("%f",&preco_fabrica);
+
+    preco_imp = preco_fabrica * 0.45;
+    preco_dist = preco_imp * 0.30 ;
+
+    preco_final = preco_fabrica + preco_imp + preco_dist;
+
+    printf("O custo de um carro de %.2f sera de %.2f ao consumidor.\n",preco_fabrica,preco_final);
+
+    getch();
+    return 0;
+
+}

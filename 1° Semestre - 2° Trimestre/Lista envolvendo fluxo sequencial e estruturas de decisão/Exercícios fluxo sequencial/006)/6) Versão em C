@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+
+    float parcela, valor_produto;
+
+    printf("Digite o valor do produto:\n");
+    scanf("%f",&valor_produto);
+
+    parcela =(float) valor_produto / 6 ;
+
+    printf("O valor de cada parcela será de %.2f",parcela);
+
+    getch();
+    return 0;
+
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(LC_ALL,"Portuguese");
+    char nome[20];
+    float salariofixo, vendas, stotal;
+
+      printf("Digite o nome do vendedor:\n");
+      scanf("%s",nome);
+
+      printf("Digite o salário fixo desse vendedor\n");
+      scanf("%f",&salariofixo);
+
+      printf("Digite o total de vendas:\n");
+      scanf("%f",&vendas);
+
+      stotal = salariofixo + 0.12 * vendas ;
+
+      printf("\n\nVendedor: %s\n",nome);
+      printf("Salário fixo: %.2f\n",salariofixo);
+      printf("Salário no fim do mês:%.2f\n",stotal);
+
+
+
+      getch();
+      return 0;
+}

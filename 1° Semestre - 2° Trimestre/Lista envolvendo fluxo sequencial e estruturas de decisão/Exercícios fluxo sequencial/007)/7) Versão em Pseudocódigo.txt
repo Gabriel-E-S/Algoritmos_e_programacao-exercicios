@@ -1,0 +1,15 @@
+ALGORITMO num7
+INÍCIO
+
+    VAR REAL: preco_custo, preco_venda, percentual;
+
+    ESCREVA "olá, insira o preço de custo do produto:";
+    LEIA preco_custo;
+
+    ESCREVA " Insira o percentual de acréscimo desejado:" ;
+    LEIA percentual,
+
+    preco_venda = preco_custo + percentual * preco_custo ;
+
+    ESCREVA " o preço de venda será de:", preco_venda, "R$";
+FIM.
