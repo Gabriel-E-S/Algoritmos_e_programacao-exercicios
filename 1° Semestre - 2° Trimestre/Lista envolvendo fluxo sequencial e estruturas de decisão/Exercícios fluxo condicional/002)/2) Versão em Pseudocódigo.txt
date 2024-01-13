@@ -1,0 +1,13 @@
+ALGORITMO num2
+INÍCIO
+
+    VAR INTEIRO: num ; 
+
+    ESCREVA "Digite um número:" ; 
+    LEIA num ; 
+
+    SE num > 100 && num < 200
+        ENTÃO ESCREVA "PERTENCE AO INTERVALO";
+        SENÃO ESCREVA "NÃO PERTENCE AO INTERVALO";
+
+FIM.

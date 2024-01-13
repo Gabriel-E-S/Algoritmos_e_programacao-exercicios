@@ -1,0 +1,30 @@
+ALGORITMO num6
+INÍCIO
+
+    VAR INTEIRO: totalhomens = 0, totalmulheres = 0, i ; 
+        LITERAL: nome[30] , sexo ;
+
+    PARA i DE 1 ATÉ 30 FAÇA
+
+        ESCREVA "Digite o nome:";
+        LEIA nome ;
+
+        ESCREVA "Informe o sexo(H - homem, M - mulher) --> " ; 
+        LEIA sexo ;
+
+        ESCREVA "Nome informado:" , nome ;
+        ESCREVA "Sexo = ", sexo ; 
+
+        SE sexo == 'H'
+            ENTÃO totalhomens = totalhomens + 1 ;
+        SE sexo == 'M'
+            ENTÃO totalmulheres = totalmulheres + 1 ;
+        
+    FIM_PARA ; 
+
+    ESCREVA "Total de homens: " , totalhomens ; 
+    ESCREVA "Total de mulheres: " , totalmulheres ;
+
+FIM.
+
+    

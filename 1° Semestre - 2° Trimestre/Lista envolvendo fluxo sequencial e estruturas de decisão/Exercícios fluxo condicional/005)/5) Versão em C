@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+   int idade, i;
+
+   for(i = 0 ; i < 50; i++){
+
+        printf("Digite a idade %d --> ",i+1);
+        scanf("%d",&idade);
+
+        if(idade >= 18){
+            printf("maior de idade\n\n");
+        }
+        else{
+            printf("menor de idade\n\n");
+        }
+
+   }
+
+    getch();
+    return 0;
+}

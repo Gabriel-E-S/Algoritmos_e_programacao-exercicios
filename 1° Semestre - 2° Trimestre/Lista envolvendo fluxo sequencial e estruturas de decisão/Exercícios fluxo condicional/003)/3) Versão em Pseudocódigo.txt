@@ -1,0 +1,33 @@
+ALGORITMO num3
+INÍCIO
+
+    VAR
+        LITERAL: nome[20];
+        INTEIRO: nota1, nota2, nota3 ;
+        REAL: media ;
+
+    ESCREVA "Digite o nome do aluno:";
+    LEIA nome ; 
+
+    ESCREVA "Digite a nota 1:";
+    LEIA nota1 ;
+
+    ESCREVA "Digite a nota 2:";
+    LEIA nota2 ;
+
+    ESCREVA "Digite a nota 3:";
+    LEIA nota3 ;
+
+    media = ( nota1 + nota2 + nota3 )  / 3  ;
+
+    ESCREVA "ALUNO :", nome;
+    ESCREVA "SITUACAO: ";
+
+    SE media >= 7 
+        ENTÃO ESCREVA "APROVADO!";
+        SENÃO SE media <= 5
+                ENTÃO ESCREVA "REPROVADO!";
+                SENÃO ESCREVA "EXAME!";
+FIM.    
+
+  

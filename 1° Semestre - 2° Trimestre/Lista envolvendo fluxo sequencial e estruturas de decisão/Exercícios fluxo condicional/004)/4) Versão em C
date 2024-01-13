@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int i, num;
+
+    for( i = 0 ; i< 80 ; i++)
+    {
+        printf("Digite o %d numero:\n", i+1);
+        scanf("%d",&num);
+
+        if( num >= 10 && num <=150)
+        {
+            printf("pertence ao intervalo!\n");
+        }
+        else
+        {
+            printf("nao pertence!\n\n");
+        }
+    }
+
+
+    getch();
+    return 0;
+}

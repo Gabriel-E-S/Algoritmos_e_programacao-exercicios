@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <ctype.h> // essa biblioteca contém a função toupper(), que deixa caracteres em maiúsculo
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+
+    int idade, cont = 0, contadordeaptos = 0 ;
+    char nome[20], saude, sexo ;
+
+    while(idade != -1)
+    {
+
+        printf("\n\n--------------  CANDIDATO: %d ------------------\n\n",cont + 1);
+
+        printf("Digite a idade do candidato(-1 para encerrar):\n");
+        scanf("%d",&idade);
+        scanf("%c"); // limpando o buffer do teclado para evitar erros
+
+        if(idade == -1)
+        {
+            break;
+        }
+
+        printf("Digite o nome do candidato:\n");
+        scanf("%s",nome);
+        scanf("%c");
+
+        printf("Digite a condição de saúde (B - Boa, R - Ruim)\n");
+        scanf("%c",&saude);
+        scanf("%c");
+
+        saude = toupper(saude);
+
+        printf("Digite o sexo do candidato (H - Homem, M - Mulher):\n");
+        scanf("%c",&sexo);
+        scanf("%c");
+
+        sexo = toupper(sexo);
+
+        if(idade >= 18 && saude == 'B' && sexo == 'H')
+        {
+            contadordeaptos += 1 ;
+            printf("\nCANDIDATO %s APTO PARA SERVIR! ALISTAMENTO OBRIGATÓRIO\n",nome);
+        }
+        else if(idade >= 18 && saude == 'B' && sexo == 'M')
+        {
+            contadordeaptos += 1 ;
+            printf("\nCANDIDATA %s APTO PARA SERVIR! ALISTAMENTO OPCIONAL\n",nome);
+        }
+        else
+        {
+            printf("\nCANDIDATO %s NÃO APTO!!\n\n",nome);
+        }
+
+        cont += 1 ;
+
+    }
+
+    printf("\n\nRESULTADO GERAL\n\n");
+    printf("DE UM TOTAL DE %d CANDIDATOS %d SÃO APTOS A SERVIR\n",cont,contadordeaptos);
+
+
+
+    getch();
+    return 0;
+}

@@ -1,0 +1,42 @@
+ALGORITMO num7
+INÍCIO
+
+    VAR INTEIRO: idade, cont = 0, contadordeaptos = 0 ; 
+        LITERAL: nome[20], saude, sexo ; 
+
+    ENQUANTO idade <> -1 FAÇA
+
+        ESCREVA "CANDIDATO:", cont + 1 ; 
+
+        ESCREVA "Digite a idade do candidato(-1 para encerrar):" ; 
+        LEIA idade ; 
+
+        SE idade == -1 
+            ENTÃO SAIA;
+
+        ESCREVA "Digite o nome do candidato:" ; 
+        LEIA nome ;
+
+        ESCREVA "Digite a condição de saúde (B - Boa, R - Ruim)";
+        LEIA saude ;
+
+        ESCREVA "Digite o sexo do candidato (H - Homem, M - Mulher):"; 
+        LEIA sexo ; 
+
+        SE idade >= 18 .E. saude == 'B' .E. sexo == 'H'
+            ENTÃO contadordeaptos = contadordeaptos + 1 ;
+                  ESCREVA "CANDIDATO", nome, " APTO PARA SERVIR! ALISTAMENTO OBRIGATÓRIO";
+
+            SENÃO SE idade >= 18 && saude == 'B' && sexo == 'M'
+                      ENTÃO contadordeaptos = contadordeaptos + 1 ;
+                            ESCREVA "CANDIDATA", nome ," APTO PARA SERVIR! ALISTAMENTO OPCIONAL"; 
+                      SENÃO ESCREVA "CANDIDATO",nome,"NÃO APTO!!" ;
+
+        cont = cont + 1 ;
+    FIM_ENQUANTO ;
+ 
+    ESCREVA "RESULTADO GERAL:";
+    ESCREVA "DE UM TOTAL DE", cont , "CANDIDATOS", contadordeaptos, "SÃO APTOS A SERVIR" ; 
+
+FIM.
+

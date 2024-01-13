@@ -1,0 +1,15 @@
+ALGORITMO num4
+INÍCIO
+
+    VAR INTEIRO: i, num ;
+
+    PARA i DE 1 ATÉ 80 FAÇA
+
+        ESCREVA "Digite o ", i , "número:" ; 
+        LEIA num ; 
+
+        SE num >= 10 .E. num <= 150
+            ENTÃO ESCREVA "Pertence ao intervalo" ; 
+            SENÃO ESCREVA "NÃO pertence ao intervalo" ; 
+    FIM_PARA;
+FIM.

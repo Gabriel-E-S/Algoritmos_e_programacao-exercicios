@@ -1,0 +1,16 @@
+ALGORITMO num5
+INÍCIO
+
+    VAR INTEIRo: i, idade ; 
+
+    PARA i DE 1 ATÉ 50 FAÇA
+
+        ESCREVA "Digite a",i , "idade:" ; 
+        LEIA idade;
+
+        SE idade >= 18
+            ENTÃO ESCREVA "Maior de idade" ; 
+            SENÃO ESCREVA "Menor de idade" ; 
+    FIM_PARA;
+
+FIM.

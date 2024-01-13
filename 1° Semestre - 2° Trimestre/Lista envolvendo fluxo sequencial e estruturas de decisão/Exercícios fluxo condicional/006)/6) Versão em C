@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <ctype.h> // essa biblioteca contém a função toupper(), que deixa caracteres em maiúsculo
+
+int main()
+{
+    int i, totalhomens = 0, totalmulheres = 0 ;
+    char nome[20], sexo ;
+
+    for(i = 0 ; i < 30; i++)
+    {
+
+        printf("Digite o nome %d --> ",i+1);
+        scanf("%s",nome);
+        fflush(stdin);
+
+        printf("Informe o sexo(H - homem, M - mulher) --> ");
+        scanf("%c",&sexo);
+
+        sexo = toupper(sexo);
+
+        printf("Nome informado: %s\n",nome);
+        printf("sexo = %c\n\n",sexo);
+
+        if(sexo == 'H')
+        {
+            totalhomens = totalhomens + 1 ;
+        }
+
+        if(sexo == 'M')
+        {
+            totalmulheres = totalmulheres + 1;
+        }
+
+    }
+
+    printf("\nTotal de homens: %d\n",totalhomens);
+    printf("Total de mulheres: %d\n",totalmulheres);
+
+    getch();
+    return 0;
+}

@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    char nome[20];
+    int nota1, nota2, nota3 ;
+    float media ;
+
+    printf("Digite o nome do aluno:\n");
+    scanf("%s",nome); // strings não precisa usar o &
+
+    printf("Digite a nota 1:\n");
+    scanf("%d",&nota1);
+
+    printf("Digite a nota 2:\n");
+    scanf("%d",&nota2);
+
+    printf("Digite a nota 3:\n");
+    scanf("%d",&nota3);
+
+    media = ( nota1 + nota2 + nota3 ) / 3  ;
+
+    printf("\nALUNO : %s\n", nome);
+    printf("SITUACAO: ");
+
+    if( media >= 7 )
+    {
+        printf("APROVADO!\n");
+    }
+    else if( media <= 5)
+    {
+        printf("REPROVADO!\n");
+    }
+    else
+    {
+        printf("EXAME!\n");
+    }
+
+    getch();
+    return 0;
+}

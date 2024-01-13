@@ -1,0 +1,18 @@
+ALGORITMO num1
+INÍCIO
+
+    VAR INTEIRO: num1, num2 ;
+
+    ESCREVA "Digite o primeiro número:" ; 
+    LEIA num1 ;
+
+    ESCREVA "Digite o segundo número:" ; 
+    LEIA num2 ;
+
+    SE num1 == num2 
+        ENTÃO ESCREVA "Os números são iguais!";
+        SENÃO SE num1 > num2 
+                ENTÃO ESCREVA "O primeiro número é maior que o segundo!" ;
+                SENÃO ESCREVA "O segundo número é maior que o primeiro!" ; 
+
+FIM.
