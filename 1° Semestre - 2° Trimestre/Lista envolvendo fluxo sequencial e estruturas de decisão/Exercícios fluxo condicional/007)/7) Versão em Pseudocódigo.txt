@@ -27,7 +27,7 @@ INÍCIO
             ENTÃO contadordeaptos = contadordeaptos + 1 ;
                   ESCREVA "CANDIDATO", nome, " APTO PARA SERVIR! ALISTAMENTO OBRIGATÓRIO";
 
-            SENÃO SE idade >= 18 && saude == 'B' && sexo == 'M'
+            SENÃO SE idade >= 18 .E. saude == 'B' .E. sexo == 'M'
                       ENTÃO contadordeaptos = contadordeaptos + 1 ;
                             ESCREVA "CANDIDATA", nome ," APTO PARA SERVIR! ALISTAMENTO OPCIONAL"; 
                       SENÃO ESCREVA "CANDIDATO",nome,"NÃO APTO!!" ;

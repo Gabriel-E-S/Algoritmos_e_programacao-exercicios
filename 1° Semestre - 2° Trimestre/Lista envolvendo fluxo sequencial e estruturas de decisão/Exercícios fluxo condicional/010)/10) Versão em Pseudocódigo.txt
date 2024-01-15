@@ -1,0 +1,20 @@
+ALGORITMO num10
+INÍCIO
+
+    VAR INTEIRO: num, i, n ;
+
+    ESCREVA "digite a quantidade de números desejados:" ;
+    LEIA n ;
+
+    PARA i DE 1 ATÉ n FAÇA
+
+        ESCREVA "Digite um número:" ;
+        LEIA num ;
+
+        SE num > 0 
+            ENTÃO ESCREVA "Número positivo!" ;
+            SENÃO SE num < 0 
+                    ENTÃO ESCREVA "Número negativo!" ;
+                    SENÃO ESCREVA "Número igual a 0!" ;
+    FIM_PARA;
+FIM.

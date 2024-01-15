@@ -1,0 +1,16 @@
+ALGORITMO num9
+INÍCIO
+
+    VAR REAL: num ;
+
+    ESCREVA "Digite um número e veja se ele é maior que 80, menor que 25 ou igual a 40:";
+    LEIA num ;
+
+    SE num == 40 
+        ENTÃO ESCREVA "O número é igual a 40" ;
+        SENÃO SE num > 80 
+                ENTÃO ESCREVA "O número é maior que 80" ;
+                SENÃO SE num < 25 
+                            ENTÃO ESCREVA "O número é menor que 25" ;
+
+FIM.

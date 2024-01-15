@@ -1,0 +1,30 @@
+ALGORITMO num8
+INÍCIO
+
+    VAR INTEIRO: i ;
+        REAL: precovenda, precocusto, mediapc, mediapv, totalpc = 0, totalpv = 0 ;
+
+    PARA i de 1 ATÉ 40 FAÇA
+
+        ESCREVA "Digite o  preço de custo", i , ":"; 
+        LEIA precocusto ; 
+
+        ESCREVA "Digite o  preço de venda", i , ":"; 
+        LEIA precovenda ;
+
+        SE precocusto > precovenda
+            ENTÃO ESCREVA "Esse produto gerou prejuízo!" ;
+            SENÃO SE precocusto < precovenda
+                        ENTÃO ESCREVA "Esse produto gerou lucro!";
+                        SENÃO ESCREVA "Esse produo gerou empate!" ;
+
+        totalpc = totalpc + precocusto ; 
+        totalpv = totalpv + precovenda ; 
+    FIM_PARA ; 
+
+    mediapc = totalpc / 40 ;
+    mediapv = totalpv / 40 ;
+
+    ESCREVA "A média do preço de custo é:", mediapc ;
+    ESCREVA "A média do preço de venda é:", mediapv ; 
+FIM.

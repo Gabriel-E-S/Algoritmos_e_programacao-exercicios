@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+
+    int i, n, num;
+
+    printf("Digite a quantidade de números desejada:\n");
+    scanf("%d",&n);
+
+    for(i=0; i< n; i++)
+    {
+        printf("\nDigite um número:\n");
+        scanf("%d",&num);
+
+        if(num > 0)
+        {
+            printf("Número positivo!\n");
+        }
+        else if(num < 0)
+        {
+            printf("Número negativo!\n");
+        }
+        else
+        {
+            printf("Número igual a 0!\n");
+        }
+
+    }
+
+    getch();
+    return 0;
+}
