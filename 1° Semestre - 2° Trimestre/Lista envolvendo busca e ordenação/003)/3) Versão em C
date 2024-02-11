@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdbool.h>
+#define tam 50
+
+int main(){
+
+    setlocale(LC_ALL,"");
+
+    int i, numeros[tam], aux, j, chave, alto, baixo, meio;
+    bool achou = false;
+
+    for(i=0;i< tam; i++){
+        printf("Digite o %d número:\n",i+1);
+        scanf("%d",&numeros[i]) ;
+    }
+
+    printf("\n\nNÚMEROS DESORDENADOS\n\n");
+
+    for(i=0;i< tam; i++){
+        printf("%d ",numeros[i]);
+    }
+
+      for(i=0; i< tam-1 ; i++){ //buble sort
+        for(j=0;j<tam-1-i;j++){
+            if(numeros[j] > numeros[j+1]){
+                aux = numeros[j];
+                numeros[j] = numeros[j+1];
+                numeros[j+1] = aux ;
+
+            }
+        }
+    }
+
+     printf("\n\nNÚMEROS ORDENADOS\n\n");
+
+    for(i=0;i< tam; i++){
+        printf("%d ",numeros[i]);
+    }
+
+    printf("\n\nDigite o número para a pesquisa:\n");
+    scanf("%d",&chave);
+
+    baixo = 0;
+    alto = tam -1;
+
+    while(baixo<= alto && !achou){
+        meio = (alto+baixo)/2 ;
+        if(chave == numeros[meio]){
+            achou = true;
+        }
+        else{
+            if(chave < numeros[meio]){
+                alto = meio -1 ;
+            }
+            else{
+                baixo = meio + 1;
+            }
+        }
+    }
+     if(achou){
+        printf("\nNÚMERO ENCONTRADO!\n");
+    }
+    else{
+        printf("\nNÚMERO NÃO ENCONTRADO!\n");
+    }
+    return 0 ;
+}

@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdbool.h>
+#include <string.h>
+#define tam 100
+
+int main(){
+
+    setlocale(LC_ALL,"");
+    int i,j;
+    char nomes[tam][50], aux[50],chave;
+    bool achei = false;
+
+    for(i=0 ; i < tam; i++){         //leitura dos dados
+        printf("Digite o %d nome:\n",i+1);
+        scanf("%49[^\n]s",nomes[i]); // sintaxe do scanf mais rebuscada para permitir entrada de espaços
+        getchar(); //limpando o buffer
+    }
+
+    for(i=0; i< tam-1 ; i++){ //buble sort
+        for(j=0;j<tam-1-i;j++){
+            if(strcmp(nomes[j],nomes[j+1])>0){
+                strcpy(aux,nomes[j]);
+                strcpy(nomes[j],nomes[j+1]);
+                strcpy(nomes[j+1],aux);
+            }
+        }
+    }
+
+    printf("Digite a letra para a pesquisa:\n");
+    scanf("%c",&chave);
+
+    printf("\n\nNOMES ORDENADOS COM A LETRA %c\n\n",chave);
+     for(i=0 ; i < tam; i++){
+        if(nomes[i][0] == chave){
+        printf("%d --> %s \n",i+1,nomes[i]);
+        achei = true;
+        }
+    }
+    if(!achei){
+        printf("\nNOMES NÃO ENCONTRADOS!\n");
+    }
+
+    return 0 ;
+}

@@ -1,0 +1,35 @@
+ALGORITMO num1
+INÍCIO
+
+    VAR INTEIRO: i, j;
+        LITERAL: nomes[100][50], aux[50], chave;
+        LÓGICO: achei = .F. ;
+
+    PARA i DE 1 ATÉ 100 FAÇA
+        ESCREVA "Digite o", i, "nome" ;
+        LEIA nomes[i] ;
+    FIM_PARA;
+
+    PARA i DE 1 ATÉ 100 - 1 FAÇA
+        PARA j de 1 ATÉ 100 - 1 - i FAÇA
+            SE nomes[j] > nomes[j+1]
+                ENTÃO aux = nomes[j];
+                      nomes[j] = nomes[j+1] ;
+                      nomes[j+1] = aux ;
+        FIM_PARA;
+    FIM_PARA;
+
+    ESCREVA "Digite a letra para a pesquisa:";
+    LEIA chave;
+
+    ESCREVA "NOMES ORDENADOS COM A LETRA", chave ;
+
+    PARA i DE 1 ATÉ 100 FAÇA
+        SE nomes[i][1] == chave 
+            ENTÃO ESCREVA i,"-->", nomes[i] ;
+                  achei = .V. ;
+    FIM_PARA;
+
+    SE .NÃO. achei
+        ENTÃO ESCREVA "NOMES NÃO ENCONTRADOS!" ;
+FIM.        

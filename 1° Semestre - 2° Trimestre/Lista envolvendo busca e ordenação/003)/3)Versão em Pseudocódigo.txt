@@ -1,0 +1,42 @@
+ALGORITMO num3
+INÍCIO
+    VAR INTEIRO: i, numeros[50], j, aux , chave, alto, baixo, meio ;
+        LÓGICO: achou = .F. ;
+
+    PARA i DE 1 ATÉ 50 FAÇA
+        ESCREVA "Digite o", i, "número" ;
+        LEIA numeros[i];
+    FIM_PARA;
+
+    // para fazer a busca binária é preciso ordenar o vetor
+    // usaremos o bubble sort para isso
+
+     PARA i DE 1 ATÉ 50 - 1 FAÇA
+        PARA j de 1 ATÉ 50 - 1 - i FAÇA
+            SE numeros[j] < numeros[j+1]
+                ENTÃO aux = numeros[j];
+                      numeros[j] = numeros[j+1] ;
+                      numeros[j+1] = aux ;
+        FIM_PARA;
+    FIM_PARA;
+
+    ESCREVA "Digite o número para a pesquisa:" ;
+    LEIA chave ;
+
+    baixo = 1; 
+    alto = 50;
+
+    ENQUANTO baixo <= alto .E. .NÃO. achou FAÇA
+        meio = (alto+ baixo) / 2;
+        SE chave == numeros[meio]
+            ENTÃO achou = .V. ;
+            SENÃO SE chave < numeros[meio]
+                    ENTÃO alto = meio - 1;
+                    SENÃO baixo = meio + 1;
+    FIM_ENQUANTO;
+
+    SE achou 
+        ENTÃO ESCREVA "Número encontrado!" ;
+        SENÃO ESCREVA "Número não encontrado!" ;
+FIM.
+
