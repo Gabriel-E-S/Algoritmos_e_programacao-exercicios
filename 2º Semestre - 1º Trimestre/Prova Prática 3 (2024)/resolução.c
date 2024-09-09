@@ -44,7 +44,7 @@ void leitura(Reg_pessoa vetor[], int *tamanhoAtual){
     while(i<N){
 
         printf("\nDIGITE O %d NOME: ",i+1);
-        scanf("%s",nome);
+        scanf("%[^\n]s",nome);
         while(getchar()!= '\n'); // Limpa o buffer do teclado
 
         if(busca(vetor,nome,*tamanhoAtual) != -1){
@@ -154,7 +154,7 @@ int main(){
             }
             case 2:{
                 printf("\nDIGITE O NOME PARA EXCLUIR: ");
-                scanf("%s",&n);
+                scanf("%[^\n]s",&n);
                 excluir(dados,tamanho,n);
                 break;
             }
