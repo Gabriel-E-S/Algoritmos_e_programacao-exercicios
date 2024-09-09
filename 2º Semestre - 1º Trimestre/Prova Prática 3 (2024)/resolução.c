@@ -71,6 +71,9 @@ void leitura(Reg_pessoa vetor[], int *tamanhoAtual){
             break;                              // o break interrompe a iteração atual de um laço
         }
     }
+    if(i == N){
+        printf("\nVETOR CHEIO!\n");
+    }
 }
 
 // procedimento que imprime a tabela
