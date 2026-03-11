@@ -31,12 +31,6 @@ The pseudocode format used in the notes of this repository was developed exclusi
 
 # Algoritmos e Programação | UEPG -- (Texto em Português)
 
-<div align="center">
-  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C" />
-  <img src="https://img.shields.io/badge/Pseudoc%C3%B3digo-4D4D4D?style=for-the-badge&logo=codeigniter&logoColor=white" alt="Pseudocódigo" />
-</div>
-<br>
-
 Olá! 👋 Bem-vindo ao repositório dedicado às atividades e exercícios da disciplina de **Algoritmos e Programação**, cursada na **Universidade Estadual de Ponta Grossa (UEPG)**.
 
 ## 🎯 Objetivo do Repositório
